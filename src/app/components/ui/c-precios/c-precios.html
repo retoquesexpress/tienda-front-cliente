@@ -1,0 +1,14 @@
+<section class="precios">
+  <div class="content">
+    <h2>Corte y estilizado</h2>
+
+    <ul class="price-list">
+      @for (precio of precios; track $index) {
+      <li>
+        <span class="service">{{ precio.servicio }}</span>
+        <span class="price">{{ precio.precio }}</span>
+      </li>
+      }
+    </ul>
+  </div>
+</section>

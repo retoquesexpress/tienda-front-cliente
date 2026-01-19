@@ -1,0 +1,40 @@
+.precios {
+  background: linear-gradient(180deg, #c7a88a, #b59578);
+  padding: 4rem 2rem;
+  color: #fff8c5;
+
+  .content {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  h2 {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+    font-weight: 500;
+  }
+
+  .price-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+
+    li {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 0.9rem 0;
+      border-bottom: 1px solid rgba(255, 248, 197, 0.6);
+
+      .service {
+        font-size: 0.95rem;
+        letter-spacing: 0.5px;
+      }
+
+      .price {
+        font-size: 1rem;
+        font-weight: 600;
+      }
+    }
+  }
+}

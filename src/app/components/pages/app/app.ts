@@ -2,11 +2,10 @@ import { Component, inject, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { CHeader } from '../../ui/c-header/c-header';
 import { LoginService } from '../../../datos/Services/s-login';
-import { Categorias } from "../admin/gestion-categorias/categorias/categorias";
 import { CBloque3Imagenes } from "../../ui/c-bloque-3-imagenes/c-bloque-3-imagenes";
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CHeader, Categorias, CBloque3Imagenes],
+  imports: [RouterOutlet, CHeader, CBloque3Imagenes],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
