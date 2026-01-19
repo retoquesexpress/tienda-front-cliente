@@ -1,0 +1,14 @@
+@use "sass:map";
+@use '../01_utilities/_variables' as utilities;
+
+:root {
+  @each $key, $value in utilities.$gap-sizes {
+    --mlt-sys-gap-#{$key}: #{$value};
+  }
+}
+
+@each $key, $value in utilities.$gap-sizes {
+  .g--gap-#{$key} {
+    gap: var(--mlt-sys-gap-#{$key});
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "services": [
+    {
+      "id": "u1",
+      "nombre": "Esmalte normal",
+      "descripcion": "Aplicación de esmalte tradicional en uñas",
+      "precio": 5,
+      "pictureUrl": "u1"
+    },
+    {
+      "id": "u2",
+      "nombre": "Semipermanente",
+      "descripcion": "Aplicación de esmalte semipermanente para mayor duración",
+      "precio": 15,
+      "pictureUrl": "u2"
+    },
+    {
+      "id": "u3",
+      "nombre": "Gel",
+      "descripcion": "Aplicación de uñas de gel",
+      "precio": 20,
+      "pictureUrl": "u3"
+    },
+    {
+      "id": "u4",
+      "nombre": "Con retirada",
+      "descripcion": "Retirada de esmalte anterior y aplicación de nuevo",
+      "precio": 10,
+      "pictureUrl": "u4"
+    },
+    {
+      "id": "u5",
+      "nombre": "Añadiendo dibujo",
+      "descripcion": "Decoración de uñas con diseño personalizado",
+      "precio": 8,
+      "pictureUrl": "u5"
+    },
+    {
+      "id": "u6",
+      "nombre": "Joyas",
+      "descripcion": "Decoración de uñas con piedras y accesorios",
+      "precio": 12,
+      "pictureUrl": "u6"
+    },
+    {
+      "id": "m1",
+      "nombre": "Sencillo",
+      "descripcion": "Maquillaje diario y natural",
+      "precio": 20,
+      "pictureUrl": "m1"
+    },
+    {
+      "id": "m2",
+      "nombre": "De eventos",
+      "descripcion": "Maquillaje para ocasiones especiales",
+      "precio": 35,
+      "pictureUrl": "m2"
+    },
+    {
+      "id": "m3",
+      "nombre": "Artístico",
+      "descripcion": "Maquillaje creativo o temático",
+      "precio": 40,
+      "pictureUrl": "m3"
+    },
+    {
+      "id": "p1",
+      "nombre": "Despunte",
+      "descripcion": "Corte de puntas para mantener el cabello saludable",
+      "precio": 10,
+      "pictureUrl": "p1"
+    },
+    {
+      "id": "p2",
+      "nombre": "Corte + Secado",
+      "descripcion": "Corte de cabello seguido de secado y peinado",
+      "precio": 25,
+      "pictureUrl": "p2"
+    },
+    {
+      "id": "p3",
+      "nombre": "Corte en seco de puntas",
+      "descripcion": "Corte en seco para mantener la forma y salud del cabello",
+      "precio": 15,
+      "pictureUrl": "p3"
+    },
+    {
+      "id": "p4",
+      "nombre": "Estilizado",
+      "descripcion": "Peinado y estilizado del cabello",
+      "precio": 20,
+      "pictureUrl": "p4"
+    },
+    {
+      "id": "p5",
+      "nombre": "Eventos",
+      "descripcion": "Peinado especial para eventos y ocasiones importantes",
+      "precio": 35,
+      "pictureUrl": "p5"
+    }
+  ],
+  "categoryServices": [
+    {
+      "id": "c1",
+      "name": "Uñas"
+    },
+    {
+      "id": "c2",
+      "name": "Maquillaje"
+    },
+    {
+      "id": "c3",
+      "name": "Peluquería"
+    }
+  ]
+}

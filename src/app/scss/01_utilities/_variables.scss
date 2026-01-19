@@ -1,0 +1,157 @@
+$colors: (
+  primary: #571e2d,
+  primaryLight: #802c42,
+  secondary: #b99880,
+  secondaryLight: #d1b89a,
+  secondaryTransparent:  rgba(185, 152, 128, 0.1),
+  light: #f8f6f0,
+  lightTransparent: rgba(255, 255, 255, 0.9),
+  dark: #0f0f0f, 
+  gray: #666666,
+  green: #4caf50,
+  greenLight: #5fd565,
+  red: #f91100,
+  redShadow: rgba(249, 17, 0, 0.4),
+  reddark:#991b1b,
+  redlight: #fee2e2,
+  redlight2:#ef4444,
+  blue: #0399cc,
+  blueShadow: rgba(3, 153, 204, 0.4),
+  yellow: #ff9800,
+  yellowShadow: rgba(255, 152, 0, 0.4),
+
+);
+
+$font-sizes: (
+  11: 11px,
+  12: 12px,
+  13: 13px,
+  14: 14px,
+  15: 15px,
+  16: 16px,
+  17: 17px,
+  20: 20px,
+  22: 22px,
+  24: 24px,
+  28: 28px,
+  30: 30px,
+  32: 32px,
+  50: 50px,
+);
+$font-families: (
+  titulos: 'Poppins',
+  textos1: 'Sorts Mill Goudy'
+);
+
+$margin-sizes: (
+  0: 0px,
+  1: 1px,
+  2: 2px,
+  4: 4px,
+  8: 8px,
+  10: 10px,
+  12: 12px,
+  20: 20px,
+  24: 24px,
+  30: 30px,
+  35: 35px,
+  40: 40px,
+  50: 50px,
+  100: 100px,
+  150: 150px,
+  3p: 3%,
+);
+
+$width-sizes: (
+  8: 8px,
+  20: 20px,
+  24: 24px,
+  28: 28px,
+  30: 30px,
+  40: 40px,
+  50: 50px,
+  54: 54px,
+  80: 80px,
+  100: 100px,
+  150: 150px,
+  350: 350px,
+  400: 400px,
+  500: 500px,
+  550: 550px,
+  600: 600px,
+  768: 768px,
+  900: 900px,
+  1000: 1000px,
+  10p: 10%,
+  40p: 40%,
+  60p: 60%,
+  80p: 80%,
+  100p: 100%,
+);
+
+$height-sizes: (
+  40px: 40px,
+  54: 54px,
+  80: 80px,
+  100p: 100%,
+);
+
+$border-radiuses: (
+  2: 2px,
+  4: 4px,
+  10: 10px,
+  12: 12px,
+  15: 15px,
+  20: 20px,
+  30: 30px,
+  50: 50px,
+  50p: 50%,
+);
+
+$border-widths: (
+  1: 1px,
+  4: 4px,
+);
+
+$padding-sizes: (
+  4: 4px,
+  6: 6px,
+  8: 8px,
+  10: 10px,
+  12: 12px,
+  14: 14px,
+  15: 15px,
+  16: 16px,
+  18: 18px,
+  20: 20px,
+  25: 25px,
+  30: 30px,
+  40: 40px,
+  50: 50px,
+);
+
+$gap-sizes: (
+  6: 6px,
+  8: 8px,
+  10: 10px,
+  12: 12px,
+  15: 15px,
+  20: 20px,
+  24: 24px,
+  70: 70px,
+);
+
+$shadows: (
+  none: none,
+  small: 0 1px 3px rgba(0, 0, 0, 0.12),
+  medium: 0 4px 6px rgba(0, 0, 0, 0.1),
+  large: 0 10px 20px rgba(0, 0, 0, 0.15),
+);
+
+
+$font-weights: (
+  600: 600,
+  700: 700,
+);
+
+

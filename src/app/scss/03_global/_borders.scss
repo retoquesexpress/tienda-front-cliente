@@ -1,0 +1,25 @@
+@use "sass:map";
+@use '../01_utilities/_variables' as utilities;
+
+:root {
+  @each $key, $value in utilities.$border-radiuses {
+    --mlt-sys-border-radius-#{$key}: #{$value};
+  }
+
+  @each $key, $value in utilities.$border-widths {
+    --mlt-sys-border-width-#{$key}: #{$value};
+  }
+}
+
+@each $key, $value in utilities.$border-radiuses {
+  .g--border-radius-#{$key} {
+    border-radius: var(--mlt-sys-border-radius-#{$key});
+  }
+}
+
+@each $key, $value in utilities.$border-widths {
+  .g--border-width-#{$key} {
+    border-width: var(--mlt-sys-border-width-#{$key});
+  }
+}
+

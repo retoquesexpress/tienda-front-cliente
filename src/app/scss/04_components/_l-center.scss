@@ -1,0 +1,25 @@
+.l-center {
+    display: flex;
+
+    &__horizontal {
+        justify-content: center;
+    }
+
+    &__vertical {
+        align-items: center;
+    }
+
+    &__total {
+        justify-content: center;
+        align-items: center;
+    }
+
+    &__text {
+        text-align: center;
+    }
+
+    &__margin-auto {
+        margin-left: auto;
+        margin-right: auto;
+    }
+}

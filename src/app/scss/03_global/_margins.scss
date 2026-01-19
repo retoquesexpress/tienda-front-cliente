@@ -1,0 +1,20 @@
+@use "sass:map";
+@use '../01_utilities/_variables' as utilities;
+
+:root {
+  @each $key, $value in utilities.$margin-sizes {
+    --mlt-sys-margin-#{$key}: #{$value};
+  }
+}
+
+@each $key, $value in utilities.$margin-sizes {
+  .g--margin-#{$key} {
+    margin: var(--mlt-sys-margin-#{$key});
+  }
+  .g--margin-left-#{$key} {
+    margin-left: var(--mlt-sys-margin-#{$key});
+  }
+  .g--margin-top-#{$key} {
+    margin-top: var(--mlt-sys-margin-#{$key});
+  }
+}

@@ -1,0 +1,14 @@
+@use "sass:map";
+@use '../01_utilities/_variables' as utilities;
+
+:root {
+  @each $key, $value in utilities.$padding-sizes {
+    --mlt-sys-padding-#{$key}: #{$value};
+  }
+}
+
+@each $key, $value in utilities.$padding-sizes {
+  .g--padding-#{$key} {
+    padding: var(--mlt-sys-padding-#{$key});
+  }
+}

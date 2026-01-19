@@ -1,0 +1,78 @@
+.footer {
+    --footer-background-color: var(--mlt-sys-dark);
+    --footer-color: var(--mlt-sys-light);
+    --footer-padding: var(--mlt-sys-padding-8);
+
+    --footer-title-font-size: var(--mlt-sys-font-size-6);
+    --footer-title-margin-bottom: var(--mlt-sys-margin-4);
+    --footer-title-color: var(--mlt-sys-light);
+
+    --footer-divider-color: var(--mlt-sys-primary);
+    --footer-divider-margin-top: var(--mlt-sys-margin-2);
+    --footer-divider-margin-bottom: var(--mlt-sys-margin-9);
+    --footer-divider-width: var(--mlt-sys-width-18);
+    --footer-divider-border-top-width: var(--mlt-sys-width-2);
+
+    --footer-content-gap: var(--mlt-sys-gap-10);
+
+    --footer-subtitle-font-size: var(--mlt-sys-font-size-6);
+    --footer-subtitle-color: var(--mlt-sys-light);
+
+    --footer-text-font-size: var(--mlt-sys-font-size-5);
+    --footer-text-color: var(--mlt-sys-light);
+
+    --footer-social-icon-size: var(--mlt-sys-gap-6);
+
+    --footer-icon-size: var(--mlt-sys-width-7);
+
+
+    background-color: var(--footer-background-color);
+    color: var(--footer-color);
+    text-align: center;
+    padding: var(--footer-padding);
+}
+
+.footer__title {
+    font-size: var(--footer-title-font-size);
+    margin-bottom: var(--footer-title-margin-bottom);
+    color: var(--footer-title-color);
+}
+
+.footer__divider {
+    width: var(--footer-divider-width);
+    margin-top: var(--footer-divider-margin-top);
+    margin-right: auto;
+    margin-bottom: var(--footer-divider-margin-bottom);
+    margin-left: auto;
+    border-top: solid;
+    border-top-width: var(--footer-divider-border-top-width);
+    border-top-color: var(--footer-divider-color);
+}
+
+.footer__content {
+    display: flex;
+    justify-content: center;
+    gap: var(--footer-content-gap);
+}
+
+
+.footer__subtitle {
+    font-size: var(--footer-subtitle-font-size);
+    color: var(--footer-subtitle-color);
+}
+
+.footer__text {
+    font-size: var(--footer-text-font-size);
+    color: var(--footer-text-color);
+}
+
+.footer__social-icons {
+    display: flex;
+    gap: var(--footer-social-icon-size);
+}
+
+.footer__icon {
+    width: var(--footer-icon-size);
+}
+
+
