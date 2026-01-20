@@ -1,43 +1,64 @@
-:host {
-  display: block;
-  --transition-speed: var(--transition, 0.3s ease);
-  --card-img-width: 260px;
-  --card-img-height: 320px;
-}
-
 .grid-categorias {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 30px;
-  max-width: 1200px;
-  margin: 0 auto 100px auto;
-  padding: 0 20px;
+  --grid-display: grid;
+  --grid-columns: repeat(3, 1fr);
+  --grid-gap: var(--mlt-sys-gap-30);
+  --grid-max-width: var(--mlt-sys-width-1200);
+  --grid-margin: 0 auto var(--mlt-sys-spacer-100) auto;
+  --grid-padding: 0 var(--mlt-sys-padding-20);
+  --grid-bg: var(--mlt-sys-white);
+
+  display: var(--grid-display);
+  background-color: var(--grid-bg);
+  grid-template-columns: var(--grid-columns);
+  gap: var(--grid-gap);
+  max-width: var(--grid-max-width);
+  margin: var(--grid-margin);
+  padding: var(--grid-padding);
   place-items: center;
-}
 
-.card {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  text-align: center;
-  gap: 12px;
-  cursor: pointer;
-}
-.card .img {
-  width: var(--card-img-width);
-  height: var(--card-img-height);
-  object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
-}
-.card .img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
-}
-.card .text {
-  font-size: 1.2rem;
-  font-weight: 500;
-  color: var(--text-color, #000000);
-}
+  &__card {
+    --card-display: flex;
+    --card-direction: column;
+    --card-align: center;
+    --card-gap: var(--mlt-sys-gap-12);
+    --card-transition: 0.3s ease;
 
+    display: var(--card-display);
+    flex-direction: var(--card-direction);
+    align-items: var(--card-align);
+    text-align: center;
+    gap: var(--card-gap);
+    cursor: pointer;
+
+
+  }
+
+  &__img {
+    --img-width: 260px;
+    --img-height: 320px;
+    --img-radius: var(--mlt-sys-radius-8);
+    --img-shadow: var(--mlt-sys-shadow-small);
+
+    width: var(--img-width);
+    height: var(--img-height);
+    object-fit: cover;
+    border-radius: var(--img-radius);
+    box-shadow: var(--img-shadow);
+    transition: transform var(--card-transition), box-shadow var(--card-transition);
+
+    &:hover {
+      transform: scale(1.05);
+      box-shadow: var(--mlt-sys-shadow-medium);
+    }
+  }
+
+  &__text {
+    --text-font-size: 1.2rem;
+    --text-font-weight: var(--mlt-sys-weight-500);
+    --text-color: var(--mlt-sys-dark);
+
+    font-size: var(--text-font-size);
+    font-weight: var(--text-font-weight);
+    color: var(--text-color);
+  }
+}

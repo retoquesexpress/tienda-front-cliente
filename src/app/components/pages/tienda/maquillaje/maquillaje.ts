@@ -9,7 +9,7 @@ import { CFooter } from '../../../ui/c-footer/c-footer';
 
 @Component({
     selector: 'app-maquillaje',
-    imports: [RouterLink, FotoPrincipalComponent, CPrecios, CBloque3Imagenes, CHeader, CFooter],
+    imports: [FotoPrincipalComponent, CPrecios, CBloque3Imagenes, CHeader, CFooter],
     templateUrl: './maquillaje.html',
     styleUrl: './maquillaje.scss'
 })

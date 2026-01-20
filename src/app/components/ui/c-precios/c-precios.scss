@@ -1,40 +1,69 @@
 .precios {
-  background: linear-gradient(180deg, #c7a88a, #b59578);
-  padding: 4rem 2rem;
-  color: #fff8c5;
+  --precios-bg: var(--mlt-sys-brand-secondary);
+  --precios-bg-gradient: linear-gradient(180deg, var(--mlt-sys-secondary), var(--mlt-sys-brand-secondary));
+  --precios-padding: var(--mlt-sys-spacer-100) var(--mlt-sys-spacer-32);
+  --precios-color: var(--mlt-sys-light);
 
-  .content {
-    max-width: 900px;
-    margin: 0 auto;
+  background: var(--precios-bg-gradient);
+  padding: var(--precios-padding);
+  color: var(--precios-color);
+
+  &__content {
+    --content-max-width: var(--mlt-sys-width-900);
+    --content-margin: 0 auto;
+
+    max-width: var(--content-max-width);
+    margin: var(--content-margin);
   }
 
-  h2 {
-    font-size: 1.8rem;
-    margin-bottom: 2rem;
-    font-weight: 500;
+  &__title {
+    --title-font-size: var(--mlt-sys-font-size-30);
+    --title-margin-bottom: var(--mlt-sys-spacer-32);
+    --title-font-weight: var(--mlt-sys-weight-500);
+
+    font-size: var(--title-font-size);
+    margin-bottom: var(--title-margin-bottom);
+    font-weight: var(--title-font-weight);
+    text-align: center;
   }
 
-  .price-list {
-    list-style: none;
-    padding: 0;
-    margin: 0;
+  &__list {
+    --list-style: none;
+    --list-padding: var(--mlt-sys-padding-0);
+    --list-margin: var(--mlt-sys-spacer-0);
 
-    li {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 0.9rem 0;
-      border-bottom: 1px solid rgba(255, 248, 197, 0.6);
+    list-style: var(--list-style);
+    padding: var(--list-padding);
+    margin: var(--list-margin);
+  }
 
-      .service {
-        font-size: 0.95rem;
-        letter-spacing: 0.5px;
-      }
+  &__item {
+    --item-display: flex;
+    --item-justify: space-between;
+    --item-align: center;
+    --item-padding: 0.9rem 0;
+    --item-border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 
-      .price {
-        font-size: 1rem;
-        font-weight: 600;
-      }
-    }
+    display: var(--item-display);
+    justify-content: var(--item-justify);
+    align-items: var(--item-align);
+    padding: var(--item-padding);
+    border-bottom: var(--item-border-bottom);
+  }
+
+  &__service {
+    --service-font-size: 0.95rem;
+    --service-letter-spacing: 0.5px;
+
+    font-size: var(--service-font-size);
+    letter-spacing: var(--service-letter-spacing);
+  }
+
+  &__price {
+    --price-font-size: var(--mlt-sys-font-size-16);
+    --price-font-weight: var(--mlt-sys-weight-600);
+
+    font-size: var(--price-font-size);
+    font-weight: var(--price-font-weight);
   }
 }

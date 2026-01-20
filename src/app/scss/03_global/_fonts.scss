@@ -3,11 +3,12 @@
 
 :root {
   @each $key, $value in utilities.$font-sizes {
-    --mlt-sys-font-size-#{$key}: #{$value};
+    --mlt-sys-font-size-#{"" + $key}: #{$value};
   }
+
   @each $key, $value in utilities.$font-families {
-        --mlt-sys-font-#{$key}: #{$value};
-    }
+    --mlt-sys-font-#{"" + $key}: #{$value};
+  }
 }
 
 @each $key, $value in utilities.$font-sizes {
@@ -15,8 +16,9 @@
     font-size: var(--mlt-sys-font-size-#{$key});
   }
 }
+
 @each $key, $value in utilities.$font-families {
-    .g--font-family-#{$key} {
-        font-family: var(--mlt-sys-font-#{$key});
-    }
+  .g--font-family-#{$key} {
+    font-family: var(--mlt-sys-font-#{$key});
+  }
 }

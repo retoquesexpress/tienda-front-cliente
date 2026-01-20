@@ -5,7 +5,7 @@ import { LoginService } from '../../../datos/Services/s-login';
 import { CBloque3Imagenes } from "../../ui/c-bloque-3-imagenes/c-bloque-3-imagenes";
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CHeader, CBloque3Imagenes],
+  imports: [RouterOutlet, CHeader],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
@@ -13,7 +13,7 @@ export class App {
   protected readonly title = signal('tienda-front');
 
   loginService = inject(LoginService)
-  logged=false;
+  logged = false;
 
   ngOnInit() {
     this.loginService.isLogged$.subscribe(isLogged => {

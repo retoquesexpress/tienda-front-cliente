@@ -1,20 +1,19 @@
 <c-header></c-header>
-<app-foto-principal
-  [img]="'assets/inicio/homeBackground.jpg'"
-  [texto]="'Bienvenido a Retoques Express - Tu belleza, nuestra pasión'"
-></app-foto-principal>
+<app-foto-principal [img]="'assets/inicio/homeBackground.jpg'"
+  [texto]="'Bienvenido a Retoques Express - Tu belleza, nuestra pasión'"></app-foto-principal>
+
 <section class="retoques">
-  <div class="retoques-container">
-    <div class="retoques-image">
+  <div class="retoques__container">
+    <div class="retoques__image">
       <img src="assets/inicio/model1.jpg" alt="Retoques Express" />
     </div>
 
-    <div class="retoques-content">
-      <h2>Retoques<br />Express</h2>
+    <div class="retoques__content">
+      <h2><span>Estudio de Belleza</span>Retoques<br />Express</h2>
 
       <p>
-        Siempre vi el cabello como un lienzo.<br />
-        Lo que empezó como un proyecto personal, poco a poco se transformó en un estudio donde puedo
+        Siempre vi el cabello como un lienzo.
+        Lo que empezó como un proyecto personal, poco a poco se transformó en un studio donde puedo
         expresarme a través de cortes, color y formas que cuentan historias.
       </p>
 
@@ -26,6 +25,10 @@
     </div>
   </div>
 </section>
-<app-c-bloque-3-imagenes class="images" [bloques]=bloques>
-</app-c-bloque-3-imagenes>
+
+<div class="images">
+  <app-c-bloque-3-imagenes [bloques]=bloques>
+  </app-c-bloque-3-imagenes>
+</div>
+
 <c-footer></c-footer>

@@ -3,7 +3,7 @@
 
 :root {
   @each $key, $value in utilities.$height-sizes {
-    --mlt-sys-height-#{$key}: #{$value};
+    --mlt-sys-height-#{"" + $key}: #{$value};
   }
 }
 

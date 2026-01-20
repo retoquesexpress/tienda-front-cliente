@@ -3,7 +3,7 @@
 
 :root {
   @each $key, $value in utilities.$padding-sizes {
-    --mlt-sys-padding-#{$key}: #{$value};
+    --mlt-sys-padding-#{"" + $key}: #{$value};
   }
 }
 

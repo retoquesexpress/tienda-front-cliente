@@ -5,9 +5,16 @@
         <ul class="header__nav-list">
             <li class="header__nav-item"><a class="header__nav-link" routerLink="/inicio">Inicio</a></li>
             <li class="header__nav-item"><a class="header__nav-link" routerLink="/reservas">Reservas</a></li>
-            <li class="header__nav-item"><a class="header__nav-link" routerLink="/unas">Uñas</a></li>
-            <li class="header__nav-item"><a class="header__nav-link" routerLink="/maquillaje">Maquillaje</a></li>
-            <li class="header__nav-item"><a class="header__nav-link" routerLink="/peluqueria">Peluqueria</a></li>
+            <li class="header__nav-item header__nav-item--dropdown">
+                <span class="header__nav-link">Servicios</span>
+                <ul class="header__submenu">
+                    <li class="header__submenu-item"><a class="header__submenu-link" routerLink="/unas">Uñas</a></li>
+                    <li class="header__submenu-item"><a class="header__submenu-link"
+                            routerLink="/maquillaje">Maquillaje</a></li>
+                    <li class="header__submenu-item"><a class="header__submenu-link"
+                            routerLink="/peluqueria">Peluqueria</a></li>
+                </ul>
+            </li>
             <li class="header__nav-item"><a class="header__nav-link" routerLink="/">Login</a></li>
         </ul>
     </nav>

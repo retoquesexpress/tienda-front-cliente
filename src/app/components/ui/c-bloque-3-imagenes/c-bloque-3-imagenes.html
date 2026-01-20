@@ -1,9 +1,9 @@
 <section class="grid-categorias">
 
   @for (bloque of bloques; track $index) {
-  <div class="card">
-    <img class="img" [src]="bloque.img" />
-    <h3 class="text">{{ bloque.texto }}</h3>
+  <div class="grid-categorias__card">
+    <img class="grid-categorias__img" [src]="bloque.img" />
+    <h3 class="grid-categorias__text">{{ bloque.texto }}</h3>
   </div>
   }
 </section>

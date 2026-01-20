@@ -19,7 +19,9 @@ $colors: (
   blueShadow: rgba(3, 153, 204, 0.4),
   yellow: #ff9800,
   yellowShadow: rgba(255, 152, 0, 0.4),
-
+  brand-primary: #571e2d,
+  brand-secondary: #b99880,
+  white: #ffffff,
 );
 
 $font-sizes: (
@@ -30,12 +32,15 @@ $font-sizes: (
   15: 15px,
   16: 16px,
   17: 17px,
+  18: 18px,
   20: 20px,
   22: 22px,
   24: 24px,
   28: 28px,
   30: 30px,
   32: 32px,
+  40: 40px,
+  42: 42px,
   50: 50px,
 );
 $font-families: (
@@ -54,6 +59,7 @@ $margin-sizes: (
   20: 20px,
   24: 24px,
   30: 30px,
+  32: 32px,
   35: 35px,
   40: 40px,
   50: 50px,
@@ -66,13 +72,16 @@ $width-sizes: (
   5: 5px,
   7: 7px,
   8: 8px,
+  10: 10px,
   20: 20px,
   24: 24px,
   28: 28px,
   30: 30px,
+  35: 35px,
   40: 40px,
   50: 50px,
   54: 54px,
+  70: 70px,
   80: 80px,
   100: 100px,
   150: 150px,
@@ -148,6 +157,7 @@ $shadows: (
   small: 0 1px 3px rgba(0, 0, 0, 0.12),
   medium: 0 4px 6px rgba(0, 0, 0, 0.1),
   large: 0 10px 20px rgba(0, 0, 0, 0.15),
+  header: 0 2px 4px rgba(0, 0, 0, 0.1),
 );
 
 

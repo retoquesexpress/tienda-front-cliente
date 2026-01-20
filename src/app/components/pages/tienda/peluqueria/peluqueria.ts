@@ -9,7 +9,7 @@ import { CPrecios } from '../../../ui/c-precios/c-precios';
 
 @Component({
   selector: 'app-peluqueria',
-  imports: [RouterLink, FotoPrincipalComponent, CPrecios, CBloque3Imagenes, CHeader, CFooter],
+  imports: [FotoPrincipalComponent, CPrecios, CBloque3Imagenes, CHeader, CFooter],
   templateUrl: './peluqueria.html',
   styleUrl: './peluqueria.scss'
 })

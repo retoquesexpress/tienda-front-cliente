@@ -7,7 +7,7 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-inicio',
-  imports: [CHeader, FotoPrincipalComponent, CBloque3Imagenes, CFooter, RouterLink],
+  imports: [CHeader, FotoPrincipalComponent, CBloque3Imagenes, CFooter],
   templateUrl: './inicio.html',
   styleUrl: './inicio.scss'
 })

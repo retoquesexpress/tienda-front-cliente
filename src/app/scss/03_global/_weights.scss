@@ -3,7 +3,7 @@
 
 :root {
   @each $key, $value in utilities.$font-weights {
-    --mlt-sys-font-weight-#{$key}: #{$value};
+    --mlt-sys-font-weight-#{"" + $key}: #{$value};
   }
 }
 

@@ -1,29 +1,40 @@
 .foto-principal {
-  position: relative;
-  width: 100%;
-  height: 100vh;
-  overflow: hidden;
-  margin-bottom: 100px;
+  --foto-width: 100%;
+  --foto-height: 100vh;
+  --foto-margin-bottom: var(--mlt-sys-spacer-100);
 
-  img {
+  position: relative;
+  width: var(--foto-width);
+  height: var(--foto-height);
+  overflow: hidden;
+  margin-bottom: var(--foto-margin-bottom);
+
+  &__img {
     width: 100%;
     height: 100%;
     object-fit: cover;
     display: block;
   }
 
-  .texto {
+  &__text {
+    --text-color: var(--mlt-sys-white);
+    --text-font-size: 3rem;
+    --text-font-weight: var(--mlt-sys-weight-600);
+    --text-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+    --text-padding: 0 var(--mlt-sys-padding-16);
+    --text-z-index: 10;
+
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
 
-    color: white;
-    font-size: 3rem;
-    font-weight: 600;
+    color: var(--text-color);
+    font-size: var(--text-font-size);
+    font-weight: var(--text-font-weight);
     text-align: center;
-
-    text-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
-    padding: 0 1rem;
+    text-shadow: var(--text-shadow);
+    padding: var(--text-padding);
+    z-index: var(--text-z-index);
   }
 }

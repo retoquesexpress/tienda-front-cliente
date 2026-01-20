@@ -3,7 +3,7 @@
 
 :root {
   @each $key, $value in utilities.$width-sizes {
-    --mlt-sys-width-#{$key}: #{$value};
+    --mlt-sys-width-#{"" + $key}: #{$value};
   }
 }
 

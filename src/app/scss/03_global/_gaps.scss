@@ -3,7 +3,7 @@
 
 :root {
   @each $key, $value in utilities.$gap-sizes {
-    --mlt-sys-gap-#{$key}: #{$value};
+    --mlt-sys-gap-#{"" + $key}: #{$value};
   }
 }
 

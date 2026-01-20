@@ -1,12 +1,12 @@
 <section class="precios">
-  <div class="content">
-    <h2>Precio de los servicios</h2>
+  <div class="precios__content">
+    <h2 class="precios__title">Precio de los servicios</h2>
 
-    <ul class="price-list">
+    <ul class="precios__list">
       @for (precio of precios; track $index) {
-      <li>
-        <span class="service">{{ precio.servicio }}</span>
-        <span class="price">{{ precio.precio }}</span>
+      <li class="precios__item">
+        <span class="precios__service">{{ precio.servicio }}</span>
+        <span class="precios__price">{{ precio.precio }}</span>
       </li>
       }
     </ul>

@@ -3,7 +3,7 @@
 
 :root {
   @each $key, $value in utilities.$margin-sizes {
-    --mlt-sys-margin-#{$key}: #{$value};
+    --mlt-sys-margin-#{"" + $key}: #{$value};
   }
 }
 
@@ -11,9 +11,11 @@
   .g--margin-#{$key} {
     margin: var(--mlt-sys-margin-#{$key});
   }
+
   .g--margin-left-#{$key} {
     margin-left: var(--mlt-sys-margin-#{$key});
   }
+
   .g--margin-top-#{$key} {
     margin-top: var(--mlt-sys-margin-#{$key});
   }
