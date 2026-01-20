@@ -7,9 +7,6 @@ import { Component, Input } from '@angular/core';
   styleUrl: './c-bloque-3-imagenes.scss'
 })
 export class CBloque3Imagenes {
-  // @Input() img!: string
-  // @Input() texto!: string
-
   @Input() bloques: any[] = [
     {
 

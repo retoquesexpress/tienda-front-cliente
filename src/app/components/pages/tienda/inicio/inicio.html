@@ -1,0 +1,43 @@
+<c-header></c-header>
+<app-foto-principal
+  [img]="'assets/inicio/homeBackground.jpg'"
+  [texto]="'Bienvenido a Retoques Express - Tu belleza, nuestra pasión'"
+></app-foto-principal>
+<section class="retoques">
+  <div class="retoques-container">
+    <div class="retoques-image">
+      <img src="assets/inicio/model1.jpg" alt="Retoques Express" />
+    </div>
+
+    <div class="retoques-content">
+      <h2>Retoques<br />Express</h2>
+
+      <p>
+        Siempre vi el cabello como un lienzo.<br />
+        Lo que empezó como un proyecto personal, poco a poco se transformó en un estudio donde puedo
+        expresarme a través de cortes, color y formas que cuentan historias.
+      </p>
+
+      <p>
+        En mi estudio, me dedico a entender quién eres y a crear contigo un look que hable de tu
+        energía. No se trata solo de cambiar cómo te ves, sino de diseñar un estilo que refleje lo
+        mejor de ti.
+      </p>
+    </div>
+  </div>
+</section>
+<app-c-bloque-3-imagenes class="images"
+ [img]="
+    'https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=500&auto=format&fit=crop'
+  "
+  [texto]="'Peluqueria'"
+  [img]="
+    'https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=500&auto=format&fit=crop'
+  "
+  [texto]="'Uñas'"
+  [img]="
+    'https://images.unsplash.com/photo-1604654894610-df63bc536371?q=80&w=500&auto=format&fit=crop'
+  "
+  [texto]="'Maquillaje'"
+></app-c-bloque-3-imagenes>
+<c-footer></c-footer>

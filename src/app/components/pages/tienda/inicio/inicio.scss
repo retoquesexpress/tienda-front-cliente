@@ -1,0 +1,58 @@
+.retoques {
+  padding: 80px 5%;
+  background-color: #f6f1ed;
+  margin-top: -8%;
+}
+
+.retoques-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  gap: 40px;
+}
+
+.retoques-image img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.retoques-content {
+  background-color: #6a1f3b;
+  color: #ffffff;
+  padding: 60px 50px;
+  width: 100%;
+}
+
+.retoques-content h2 {
+  font-family: "Playfair Display", serif;
+  font-size: 42px;
+  line-height: 1.1;
+  margin-bottom: 30px;
+}
+
+.retoques-content p {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+.images {
+  margin-top: 5%;
+} 
+
+@media (max-width: 900px) {
+  .retoques-container {
+    grid-template-columns: 1fr;
+  }
+
+  .retoques-content {
+    padding: 40px 30px;
+  }
+
+  .retoques-content h2 {
+    font-size: 34px;
+  }
+}

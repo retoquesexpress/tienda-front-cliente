@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
-import { FotoPrincipalComponent } from "../../../ui/c-foto-principal/c-foto-principal";
-import { CPrecios } from '../../../ui/c-precios/c-precios';
 import { CBloque3Imagenes } from '../../../ui/c-bloque-3-imagenes/c-bloque-3-imagenes';
 import { CHeader } from '../../../ui/c-header/c-header';
 import { CFooter } from '../../../ui/c-footer/c-footer';
+import { FotoPrincipalComponent } from '../../../ui/c-foto-principal/c-foto-principal';
+import { CPrecios } from '../../../ui/c-precios/c-precios';
 
 
 @Component({

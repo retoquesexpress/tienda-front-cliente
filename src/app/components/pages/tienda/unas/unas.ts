@@ -1,9 +1,8 @@
 import { Component } from '@angular/core';
 import { CBloque3Imagenes } from '../../../ui/c-bloque-3-imagenes/c-bloque-3-imagenes';
 import { CHeader } from "../../../ui/c-header/c-header";
-import { FotoPrincipalComponent } from "../../../ui/c-foto-principal/c-foto-principal";
-import { CPrecios } from "../../../ui/c-precios/c-precios";
-import { IServicios } from '../../../../datos/Models/i-servicios';
+import { FotoPrincipalComponent } from '../../../ui/c-foto-principal/c-foto-principal';
+import { CPrecios } from '../../../ui/c-precios/c-precios';
 
 @Component({
   selector: 'app-unas',
@@ -41,6 +40,7 @@ export class Unas {
     }
   ]
 
+
   bloques: any[] = [
     {
       img: 'assets/peluqueria/CortePanel.png',
@@ -55,5 +55,6 @@ export class Unas {
       texto: 'Barbería'
     }
   ]
+
 
 }
