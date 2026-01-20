@@ -1,14 +1,24 @@
+<!-- <section class="grid-categorias">
+  <div class="card">
+    <img class="img" [src]="img" />
+    <h3 class="text">{{ texto }}</h3>
+  </div>
+  <div class="card">
+    <img class="img" [src]="img" />
+    <h3 class="text">{{ texto }}</h3>
+  </div>
+  <div class="card">
+    <img class="img" [src]="img" />
+    <h3 class="text">{{ texto }}</h3>
+  </div>
+</section> -->
+
+
 <section class="grid-categorias">
-   <div class="card">
-    <ng-content select="[img1]"></ng-content>
-    <ng-content select="[title1]"></ng-content>
-  </div>
+  @for (bloque of bloques; track $index) {
   <div class="card">
-    <ng-content select="[img2]"></ng-content>
-    <ng-content select="[title2]"></ng-content>
+    <img class="img" [src]="bloque.img" />
+    <h3 class="text">{{ bloque.texto }}</h3>
   </div>
-  <div class="card">
-    <ng-content select="[img3]"></ng-content>
-    <ng-content select="[title3]"></ng-content>
-  </div>
+  }
 </section>

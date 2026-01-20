@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-c-bloque-3-imagenes',
@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
   styleUrl: './c-bloque-3-imagenes.scss'
 })
 export class CBloque3Imagenes {
+  // @Input() img!: string
+  // @Input() texto!: string
+
+  @Input() bloques: any[] = [
+    {
+
+    }
+  ]
 }

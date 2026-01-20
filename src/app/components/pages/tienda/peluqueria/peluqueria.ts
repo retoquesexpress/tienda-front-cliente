@@ -2,11 +2,14 @@ import { Component } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FotoPrincipalComponent } from "../../../ui/c-foto-principal/c-foto-principal";
 import { CPrecios } from '../../../ui/c-precios/c-precios';
+import { CBloque3Imagenes } from '../../../ui/c-bloque-3-imagenes/c-bloque-3-imagenes';
+import { CHeader } from '../../../ui/c-header/c-header';
+import { CFooter } from '../../../ui/c-footer/c-footer';
 
 
 @Component({
   selector: 'app-peluqueria',
-  imports: [RouterLink, FotoPrincipalComponent, CPrecios],
+  imports: [RouterLink, FotoPrincipalComponent, CPrecios, CBloque3Imagenes, CHeader, CFooter],
   templateUrl: './peluqueria.html',
   styleUrl: './peluqueria.scss'
 })
@@ -37,6 +40,21 @@ export class Peluqueria {
     {
       servicio: 'PEINADO PARA EVENTO',
       precio: '600€'
+    }
+  ]
+
+  bloques: any[] = [
+    {
+      img: 'assets/peluqueria/CortePanel.png',
+      texto: 'Corte y tinte'
+    },
+    {
+      img: 'assets/peluqueria/PeinadoPanel.png',
+      texto: 'Peinado evento'
+    },
+    {
+      img: 'assets/peluqueria/BarbaPanel.png',
+      texto: 'Barbería'
     }
   ]
 }
