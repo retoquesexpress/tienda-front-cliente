@@ -3,10 +3,10 @@ $colors: (
   primaryLight: #802c42,
   secondary: #b99880,
   secondaryLight: #d1b89a,
-  secondaryTransparent:  rgba(185, 152, 128, 0.1),
+  secondaryTransparent: rgba(185, 152, 128, 0.1),
   light: #f8f6f0,
   lightTransparent: rgba(255, 255, 255, 0.9),
-  dark: #0f0f0f, 
+  dark: #0f0f0f,
   gray: #666666,
   green: #4caf50,
   greenLight: #5fd565,
@@ -63,6 +63,8 @@ $margin-sizes: (
 );
 
 $width-sizes: (
+  5: 5px,
+  7: 7px,
   8: 8px,
   20: 20px,
   24: 24px,
@@ -153,5 +155,3 @@ $font-weights: (
   600: 600,
   700: 700,
 );
-
-

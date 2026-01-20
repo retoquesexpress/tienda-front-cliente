@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { CBloque3Imagenes } from '../../../ui/c-bloque-3-imagenes/c-bloque-3-imagenes';
 import { CHeader } from "../../../ui/c-header/c-header";
-import { FotoPrincipalComponent } from '../../../ui/c-foto-principal/c-foto-principal';
-import { CPrecios } from '../../../ui/c-precios/c-precios';
+import { FotoPrincipalComponent } from "../../../ui/c-foto-principal/c-foto-principal";
+import { CPrecios } from "../../../ui/c-precios/c-precios";
+import { CFooter } from "../../../ui/c-footer/c-footer";
+
 
 @Component({
   selector: 'app-unas',
   standalone: true,
-  imports: [CBloque3Imagenes, CHeader, FotoPrincipalComponent, CPrecios],
+  imports: [CBloque3Imagenes, CHeader, FotoPrincipalComponent, CPrecios, CFooter],
   templateUrl: './unas.html',
   styleUrl: './unas.scss'
 })
@@ -43,16 +45,16 @@ export class Unas {
 
   bloques: any[] = [
     {
-      img: 'assets/peluqueria/CortePanel.png',
-      texto: 'Corte y tinte'
+      img: 'assets/unas/ManicuraFrancesaBloque1.jpg',
+      texto: 'Esmalte Normal'
     },
     {
-      img: 'assets/peluqueria/PeinadoPanel.png',
-      texto: 'Peinado evento'
+      img: 'assets/unas/SemipermanenteBloque2.png',
+      texto: 'Semipermanente'
     },
     {
-      img: 'assets/peluqueria/BarbaPanel.png',
-      texto: 'Barbería'
+      img: 'assets/unas/UnasOrnamentadasBloque3.jpg',
+      texto: 'Uñas con accesorios'
     }
   ]
 
