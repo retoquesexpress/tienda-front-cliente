@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterLink } from '@angular/router';
 import { FotoPrincipalComponent } from "../../../ui/c-foto-principal/c-foto-principal";
 import { CPrecios } from '../../../ui/c-precios/c-precios';
 import { CBloque3Imagenes } from '../../../ui/c-bloque-3-imagenes/c-bloque-3-imagenes';
 import { CHeader } from '../../../ui/c-header/c-header';
 import { CFooter } from '../../../ui/c-footer/c-footer';
+import { SFuncionalidades } from '../../../../datos/Services/s-funcionalidades';
 
 
 @Component({
@@ -15,46 +16,21 @@ import { CFooter } from '../../../ui/c-footer/c-footer';
 })
 export class Maquillaje {
 
+    funcionalidadesService = inject(SFuncionalidades);
 
-    precios: any[] = [
-        {
-            servicio: 'MAQUILLAJE SENCILLO',
-            precio: '350€'
-        },
-        {
-            servicio: 'MAQUILLAJE EVENTOS',
-            precio: '450€'
-        },
-        {
-            servicio: 'MAQUILLAJE ARTISTICO',
-            precio: '350€'
-        },
-        {
-            servicio: 'DESCUBRE TU COLORIMETRÍA',
-            precio: '150€'
-        },
-        {
-            servicio: 'MAQUILLAJE + SKINCARE',
-            precio: '350€'
-        },
-        {
-            servicio: 'MAQUILLAJE DE NOVIA',
-            precio: '600€'
-        }
-    ]
+    precios: any[] = [];
 
-    bloques: any[] = [
-        {
-            img: 'assets/maquillaje/MaquillajeSencilloPanel1.png',
-            texto: 'Maquillaje sencillo'
-        },
-        {
-            img: 'assets/maquillaje/MaquillajeEventosPanel2.png',
-            texto: 'Maquillaje eventos'
-        },
-        {
-            img: 'assets/maquillaje/MaquillajeArtisticoPanel3.png',
-            texto: 'Maquillaje artístico'
-        }
-    ]
+    bloques: any[] = [];
+
+    ngOnInit(): void {
+        this.funcionalidadesService.getServicesByCategory(2).subscribe((data) => {
+            this.precios = data;
+            this.bloques = data.slice(0, 3).map((item: any) => ({
+                img: item.pictureUrl,
+                texto: item.name
+            }));
+        });
+    }
+
+
 }

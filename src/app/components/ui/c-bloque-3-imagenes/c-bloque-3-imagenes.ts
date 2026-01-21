@@ -12,4 +12,6 @@ export class CBloque3Imagenes {
 
     }
   ]
+
+  @Input() ruta: string = ''
 }

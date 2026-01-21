@@ -28,4 +28,8 @@ export class SFuncionalidades {
     return this.miHttp.get<ICategorias>(this.micategoriaUrl + "/" + id);
   }
 
+  getServicesByCategory(idCategory: number): Observable<IServicios[]> {
+    return this.miHttp.get<IServicios[]>(`${this.miUrl}/category/${idCategory}`);
+  }
+
 }

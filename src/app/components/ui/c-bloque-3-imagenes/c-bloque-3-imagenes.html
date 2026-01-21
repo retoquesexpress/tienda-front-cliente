@@ -2,7 +2,7 @@
 
   @for (bloque of bloques; track $index) {
   <div class="grid-categorias__card">
-    <img class="grid-categorias__img" [src]="bloque.img" />
+    <img class="grid-categorias__img" [src]="ruta + bloque.img" />
     <h3 class="grid-categorias__text">{{ bloque.texto }}</h3>
   </div>
   }
