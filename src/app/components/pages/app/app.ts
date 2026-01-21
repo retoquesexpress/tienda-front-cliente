@@ -5,7 +5,7 @@ import { LoginService } from '../../../datos/Services/s-login';
 import { CBloque3Imagenes } from "../../ui/c-bloque-3-imagenes/c-bloque-3-imagenes";
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, CHeader],
+  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })

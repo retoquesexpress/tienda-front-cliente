@@ -1,0 +1,68 @@
+<c-header></c-header>
+
+<div class="reservas">
+    <main class="reservas__main">
+        <section class="reservas__container">
+            <h1 class="reservas__title">Reservar Servicio</h1>
+
+            <div class="reservas__group">
+                <label class="reservas__label" for="servicio-dropdown">Selecciona un servicio</label>
+                <select class="reservas__select" id="servicio-dropdown" [(ngModel)]="servicioSeleccionadoId"
+                    (change)="agregarServicio()">
+                    <option value="" disabled selected>Escoge un servicio...</option>
+                    @for (service of serviciosDisponibles; track service.idService) {
+                    <option [value]="service.idService">
+                        {{ service.name }} - {{ service.price }}€
+                    </option>
+                    }
+                </select>
+            </div>
+
+            @if (serviciosSeleccionados.length > 0) {
+            <div class="reservas__selected">
+                <h3>Servicios seleccionados</h3>
+                <ul>
+                    @for (service of serviciosSeleccionados; track service.idService) {
+                    <li>
+                        <span>{{ service.name }}</span>
+                        <div class="reservas__selected-actions">
+                            <span class="reservas__selected-price">{{ service.price }}€</span>
+                            <button class="reservas__selected-remove"
+                                (click)="eliminarServicio(service.idService)">×</button>
+                        </div>
+                    </li>
+                    }
+                </ul>
+                <div class="reservas__selected-total">
+                    Total: {{ precioTotal }}€
+                </div>
+            </div>
+            }
+
+            <div class="reservas__group">
+                <label class="reservas__label" for="fecha">Selecciona una fecha y hora</label>
+                <input type="datetime-local" id="fecha" [(ngModel)]="fechaReserva" class="reservas__input">
+            </div>
+
+            <button class="reservas__button" (click)='reservar()'>Reservar Ahora</button>
+
+            @if (resumenReserva) {
+            <div class="reservas__summary">
+                <h2>Tu Reserva</h2>
+                <div class="reservas__summary-details">
+                    <p><strong>Fecha y Hora:</strong> {{ resumenReserva.fecha | date:'dd/MM/yyyy HH:mm' }}</p>
+                    <p><strong>Servicios incluidos:</strong></p>
+                    <ul>
+                        @for (s of resumenReserva.servicios; track s.idService) {
+                        <li>{{ s.name }} ({{ s.price }}€)</li>
+                        }
+                    </ul>
+                    <p class="reservas__summary-details-total">Total: {{ resumenReserva.total }}€</p>
+                </div>
+            </div>
+            }
+        </section>
+    </main>
+</div>
+
+<c-footer></c-footer>

@@ -27,24 +27,36 @@ export class Login {
   login() {
     this.userAndPasswordErrorMessage = null;
     this.passwordErrorMessage = null;
-    
+
     this.loginService.login(this.LoginData.userName, this.LoginData.password).subscribe({
-      
+
       next: data => {
+        console.log('Respuesta del login:', data);
         this.loginService.saveToken(data.token);
-        this.router.navigate(['/inicioAdmin']);
+
+        // Extraemos el rol del objeto userDto si existe
+        const userRole = data.userDto?.role;
+        if (userRole) {
+          this.loginService.saveRole(userRole);
+        }
+
+        if (this.loginService.isAdmin()) {
+          this.router.navigate(['/inicioAdmin']);
+        } else {
+          this.router.navigate(['/inicio']);
+        }
       },
       error: err => {
         console.log('Error del back:', err);
 
-      const backendMessage = err.error || '';
-      
-      if (backendMessage.includes('User not found')) {
-        this.userAndPasswordErrorMessage = 'El usuario o contraseña introducido no existe.';
-      } else if (err.status === 401 || backendMessage.includes('Password')) {
-        this.passwordErrorMessage = 'La contraseña es incorrecta.';
+        const backendMessage = err.error || '';
+
+        if (backendMessage.includes('User not found')) {
+          this.userAndPasswordErrorMessage = 'El usuario o contraseña introducido no existe.';
+        } else if (err.status === 401 || backendMessage.includes('Password')) {
+          this.passwordErrorMessage = 'La contraseña es incorrecta.';
+        }
       }
-    }
     });
   }
 }

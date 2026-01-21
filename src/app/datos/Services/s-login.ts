@@ -25,14 +25,31 @@ export class LoginService {
         return localStorage.getItem('Token');
     }
 
+    saveRole(role: string) {
+        localStorage.setItem('Role', role);
+    }
+
+    getRole(): string | null {
+        return localStorage.getItem('Role');
+    }
+
     isRegistered(): boolean {
         const token = this.getToken();
         const logged = token != null;
         this.isLogged.next(logged);
         return logged;
     }
+
+    isAdmin(): boolean {
+        const role = this.getRole();
+        const adminRoles = ['admin', 'ADMIN', 'administrador', 'ADMINISTRADOR'];
+        return role != null && adminRoles.includes(role);
+    }
+
     logOut() {
         localStorage.removeItem('Token');
+        localStorage.removeItem('Role');
+        this.isLogged.next(false);
     }
 
 }
