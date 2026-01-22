@@ -9,7 +9,6 @@ export const adminGuard: CanActivateFn = () => {
     if (loginService.isRegistered() && loginService.isAdmin()) {
         return true;
     } else {
-        // Si no es admin, lo mandamos a inicio normal
         router.navigate(['/inicio']);
         return false;
     }

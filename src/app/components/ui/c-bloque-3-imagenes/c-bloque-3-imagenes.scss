@@ -29,6 +29,8 @@
     text-align: center;
     gap: var(--card-gap);
     cursor: pointer;
+    text-decoration: none;
+    color: inherit;
 
 
   }
@@ -36,7 +38,7 @@
   &__img {
     --img-width: 260px;
     --img-height: 320px;
-    --img-radius: var(--mlt-sys-radius-8);
+    --img-radius: var(--mlt-sys-radius-10);
     --img-shadow: var(--mlt-sys-shadow-small);
 
     width: var(--img-width);
@@ -45,6 +47,7 @@
     border-radius: var(--img-radius);
     box-shadow: var(--img-shadow);
     transition: transform var(--card-transition), box-shadow var(--card-transition);
+
 
     &:hover {
       transform: scale(1.05);

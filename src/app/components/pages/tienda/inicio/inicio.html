@@ -26,9 +26,80 @@
   </div>
 </section>
 
-<div class="images">
-  <app-c-bloque-3-imagenes [bloques]=bloques>
+<section class="inicio-works">
+  <h2 class="inicio-works__title">Servicios</h2>
+  <app-c-bloque-3-imagenes class="inicio-works__images" [bloques]="bloques">
   </app-c-bloque-3-imagenes>
-</div>
+</section>
 
+<section class="cta">
+  <div class="cta__container">
+    <h2>¿Listo para tu cambio?</h2>
+    <p>Reserva tu cita hoy mismo y déjate mimar por nuestros profesionales.</p>
+    <a routerLink="/reservas" class="cta__button">Pedir Cita Ahora</a>
+  </div>
+</section>
+
+<section class="valores">
+  <div class="valores__wrapper">
+    <div class="valores__header">
+      <h2>Nuestros Valores</h2>
+      <p>Lo que nos define y nos impulsa a dar lo mejor de nosotros cada día.</p>
+    </div>
+    <div class="valores__container">
+      <div class="valores__item">
+
+        <div class="valores__info">
+          <h3>Calidad</h3>
+          <p>Los mejores productos para resultados excepcionales, Innovación y confianza en cada detalle.</p>
+        </div>
+      </div>
+      <div class="valores__separator"></div>
+      <div class="valores__item">
+
+        <div class="valores__info">
+          <h3>Cercanía</h3>
+          <p>Te escuchamos para encontrar tu estilo ideal, Porque cada persona es única.</p>
+        </div>
+      </div>
+      <div class="valores__separator"></div>
+      <div class="valores__item">
+
+        <div class="valores__info">
+          <h3>Experiencia</h3>
+          <p>Años dedicados a potenciar tu belleza natural, Experiencia que se refleja en cada resultado.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="testimonios">
+  <div class="testimonios__container">
+    <h2 class="testimonios__title">Lo que dicen nuestros mejores clientes </h2>
+    <div class="testimonios__grid">
+      <div class="testimonios__card">
+        <div class="testimonios__user">
+          <img src="assets/inicio/user1.jpg" alt="Cliente 1" />
+          <div class="testimonios__author">María G.</div>
+        </div>
+        <p>"Increíble atención y un resultado espectacular. Totalmente recomendado."</p>
+      </div>
+      <div class="testimonios__card">
+        <div class="testimonios__user">
+          <img src="assets/inicio/user2.jpg" alt="Cliente 2" />
+          <div class="testimonios__author">Laura S.</div>
+        </div>
+        <p>"El mejor estudio de la ciudad. Profesionales y con un gusto excelente."</p>
+      </div>
+      <div class="testimonios__card">
+        <div class="testimonios__user">
+          <img src="assets/inicio/user3.jpg" alt="Cliente 3" />
+          <div class="testimonios__author">Carlos R.</div>
+        </div>
+        <p>"Un trato impecable y un corte de pelo justo como lo quería. Repetiré seguro."</p>
+      </div>
+    </div>
+  </div>
+</section>
 <c-footer></c-footer>

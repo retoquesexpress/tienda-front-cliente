@@ -7,7 +7,8 @@ import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-inicio',
-  imports: [CHeader, FotoPrincipalComponent, CBloque3Imagenes, CFooter],
+  standalone: true,
+  imports: [CHeader, FotoPrincipalComponent, CBloque3Imagenes, CFooter, RouterLink],
   templateUrl: './inicio.html',
   styleUrl: './inicio.scss'
 })
@@ -16,14 +17,17 @@ export class Inicio {
     {
       img: 'assets/inicio/Peluquería.png',
       texto: 'Peluquería',
+      ruta: '/peluqueria'
     },
     {
       img: 'assets/inicio/Unas.png',
       texto: 'Manicura y pedicura',
+      ruta: '/unas'
     },
     {
       img: 'assets/inicio/Maquillaje.png',
       texto: 'Maquillaje',
+      ruta: '/maquillaje'
     }
   ]
 

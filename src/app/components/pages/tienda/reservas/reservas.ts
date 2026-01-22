@@ -21,6 +21,22 @@ export class Reservas implements OnInit {
   servicioSeleccionadoId: number | string = '';
   fechaReserva: string = '';
   resumenReserva: any = null;
+  minDate: string = '';
+  errorMessage: string = '';
+
+  constructor() {
+    this.setMinDate();
+  }
+
+  setMinDate(): void {
+    const now = new Date();
+    const year = now.getFullYear();
+    const month = (now.getMonth() + 1).toString().padStart(2, '0');
+    const day = now.getDate().toString().padStart(2, '0');
+    const hours = now.getHours().toString().padStart(2, '0');
+    const minutes = now.getMinutes().toString().padStart(2, '0');
+    this.minDate = `${year}-${month}-${day}T${hours}:${minutes}`;
+  }
 
   ngOnInit(): void {
 
@@ -54,12 +70,23 @@ export class Reservas implements OnInit {
   }
 
   reservar(): void {
+    this.errorMessage = '';
+    this.resumenReserva = null;
+
     if (this.serviciosSeleccionados.length === 0) {
-      alert('Por favor, selecciona al menos un servicio.');
+      this.errorMessage = 'Por favor, selecciona al menos un servicio.';
       return;
     }
     if (!this.fechaReserva) {
-      alert('Por favor, selecciona una fecha.');
+      this.errorMessage = 'Por favor, selecciona una fecha.';
+      return;
+    }
+
+    const fechaSeleccionada = new Date(this.fechaReserva);
+    const ahora = new Date();
+
+    if (fechaSeleccionada <= ahora) {
+      this.errorMessage = 'No se puede reservar en una fecha u hora pasada.';
       return;
     }
 

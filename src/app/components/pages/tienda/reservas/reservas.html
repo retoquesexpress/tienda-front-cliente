@@ -12,7 +12,7 @@
                     <option value="" disabled selected>Escoge un servicio...</option>
                     @for (service of serviciosDisponibles; track service.idService) {
                     <option [value]="service.idService">
-                        {{ service.name }} - {{ service.price }}€
+                        {{ service.name }} - {{ service.price | number:'1.2-2' }}€
                     </option>
                     }
                 </select>
@@ -26,7 +26,7 @@
                     <li>
                         <span>{{ service.name }}</span>
                         <div class="reservas__selected-actions">
-                            <span class="reservas__selected-price">{{ service.price }}€</span>
+                            <span class="reservas__selected-price">{{ service.price | number:'1.2-2' }}€</span>
                             <button class="reservas__selected-remove"
                                 (click)="eliminarServicio(service.idService)">×</button>
                         </div>
@@ -34,16 +34,22 @@
                     }
                 </ul>
                 <div class="reservas__selected-total">
-                    Total: {{ precioTotal }}€
+                    Total: {{ precioTotal | number:'1.2-2' }}€
                 </div>
             </div>
             }
 
             <div class="reservas__group">
                 <label class="reservas__label" for="fecha">Selecciona una fecha y hora</label>
-                <input type="datetime-local" id="fecha" [(ngModel)]="fechaReserva" class="reservas__input">
+                <input type="datetime-local" id="fecha" [(ngModel)]="fechaReserva" [min]="minDate"
+                    class="reservas__input">
             </div>
 
+            @if (errorMessage) {
+            <div class="reservas__error">
+                {{ errorMessage }}
+            </div>
+            }
             <button class="reservas__button" (click)='reservar()'>Reservar Ahora</button>
 
             @if (resumenReserva) {
@@ -54,10 +60,10 @@
                     <p><strong>Servicios incluidos:</strong></p>
                     <ul>
                         @for (s of resumenReserva.servicios; track s.idService) {
-                        <li>{{ s.name }} ({{ s.price }}€)</li>
+                        <li>{{ s.name }} ({{ s.price | number:'1.2-2' }}€)</li>
                         }
                     </ul>
-                    <p class="reservas__summary-details-total">Total: {{ resumenReserva.total }}€</p>
+                    <p class="reservas__summary-details-total">Total: {{ resumenReserva.total | number:'1.2-2' }}€</p>
                 </div>
             </div>
             }

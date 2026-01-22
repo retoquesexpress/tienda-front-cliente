@@ -1,9 +1,16 @@
 <section class="grid-categorias">
 
   @for (bloque of bloques; track $index) {
+  @if (bloque.ruta) {
+  <a [routerLink]="bloque.ruta" class="grid-categorias__card">
+    <img class="grid-categorias__img" [src]="ruta + bloque.img" />
+    <h3 class="grid-categorias__text">{{ bloque.texto }}</h3>
+  </a>
+  } @else {
   <div class="grid-categorias__card">
     <img class="grid-categorias__img" [src]="ruta + bloque.img" />
     <h3 class="grid-categorias__text">{{ bloque.texto }}</h3>
   </div>
+  }
   }
 </section>

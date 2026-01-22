@@ -2,9 +2,86 @@
 <app-foto-principal [img]="'assets/unas/FotoGrande2.png'" [texto]="'Servicios profesionales de manicura y pedicura'">
 </app-foto-principal>
 
-<app-c-bloque-3-imagenes class="images" [bloques]="bloques" [ruta]="'assets/unas/'">
-</app-c-bloque-3-imagenes>
+<section class="unas-works">
+    <h2 class="unas-works__title">Algunos de Nuestros Trabajos</h2>
+    <app-c-bloque-3-imagenes class="unas-works__images" [bloques]="bloques" [ruta]="'assets/unas/'">
+    </app-c-bloque-3-imagenes>
+</section>
+
+<section class="unas-trendy">
+    <h2 class="unas-trendy__title">Tendencias</h2>
+
+    <div class="unas-trendy__grid">
+        <div class="unas-trendy__card">
+            <div class="unas-trendy__img-container">
+                <img class="unas-trendy__img" src="assets/unas/pruebaSanValentin.jpg" alt="Tendencia 1">
+            </div>
+            <span class="unas-trendy__tag">Tendencias e inspiración</span>
+            <h3 class="unas-trendy__card-title">Uñas de San Valentín 2026: diseños románticos</h3>
+            <p class="unas-trendy__card-text">Descubre los diseños más románticos para este día de los enamorados. Uñas
+                con corazones, rojos intensos y mucho más.</p>
+        </div>
+
+        <div class="unas-trendy__card">
+            <div class="unas-trendy__img-container">
+                <img class="unas-trendy__img" src="assets/unas/PuntitosPrueba.jpg" alt="Tendencia 2">
+            </div>
+            <span class="unas-trendy__tag">Tendencias e inspiración</span>
+            <h3 class="unas-trendy__card-title">Diseños y colores en tendencia para este 2026</h3>
+            <p class="unas-trendy__card-text">Lo último en manicura: los colores que no te puedes perder este año.
+                ¡Inspírate con nuestras mejores ideas!</p>
+        </div>
+
+        <div class="unas-trendy__card">
+            <div class="unas-trendy__img-container">
+                <img class="unas-trendy__img" src="assets/unas/UñasAzulesPrueba.jpg" alt="Tendencia 3">
+            </div>
+            <span class="unas-trendy__tag">Tendencias e inspiración</span>
+            <h3 class="unas-trendy__card-title">Colores invierno: tendencias 2025-2026</h3>
+            <p class="unas-trendy__card-text">Descubre las uñas de invierno que marcarán estilo esta temporada. Tonos
+                fríos y elegantes para tus manos.</p>
+        </div>
+    </div>
+</section>
 
 <app-c-precios [precios]="precios"></app-c-precios>
+
+<section class="unas-commitment">
+    <div class="unas-commitment__container">
+        <div class="unas-commitment__header">
+            <h2 class="unas-commitment__title">Nuestro Compromiso</h2>
+            <p class="unas-commitment__subtitle">Calidad, higiene y elegancia en cada detalle</p>
+        </div>
+
+        <div class="unas-commitment__wrapper">
+            <div class="unas-commitment__item">
+                <div class="unas-commitment__content">
+                    <h3 class="unas-commitment__item-title">Productos Premium</h3>
+                    <p class="unas-commitment__item-text">Utilizamos solo las mejores marcas del mercado para garantizar
+                        un acabado duradero y el cuidado
+                        de tus uñas.</p>
+                </div>
+            </div>
+
+            <div class="unas-commitment__item">
+                <div class="unas-commitment__content">
+                    <h3 class="unas-commitment__item-title">Higiene Total</h3>
+                    <p class="unas-commitment__item-text">Seguimos los más estrictos protocolos de esterilización y
+                        limpieza para tu total tranquilidad y
+                        seguridad.</p>
+                </div>
+            </div>
+
+            <div class="unas-commitment__item">
+                <div class="unas-commitment__content">
+                    <h3 class="unas-commitment__item-title">Personalización</h3>
+                    <p class="unas-commitment__item-text">Cada diseño es único. Nos adaptamos a tu estilo y personalidad
+                        para que tus manos luzcan
+                        espectaculares.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 <c-footer></c-footer>

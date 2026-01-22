@@ -6,7 +6,7 @@
       @for (precio of precios; track $index) {
       <li class="precios__item">
         <span class="precios__service">{{ precio.name }}</span>
-        <span class="precios__price">{{ precio.price }}</span>
+        <span class="precios__price">{{ precio.price | number:'1.2-2' }} €</span>
 
       </li>
       }
