@@ -1,0 +1,64 @@
+<main class="register">
+    <div class="register__container">
+        <h2 class="register__title">Crear Cuenta</h2>
+        <p class="register__subtitle">Únete a Retoques Express</p>
+
+        <div class="register__grid">
+
+            <div class="register__field">
+                <label for="name" class="register__label">Nombre Completo *</label>
+                <input type="text" class="register__input" id="name" placeholder="Ingresa tu nombre" required
+                    [(ngModel)]="registerData.name" />
+            </div>
+
+            <div class="register__field">
+                <label for="email" class="register__label">Correo Electrónico *</label>
+                <input type="email" class="register__input" id="email" placeholder="ejemplo@correo.com" required
+                    [(ngModel)]="registerData.email" />
+            </div>
+
+            <div class="register__field">
+                <label for="userName" class="register__label">Nombre de Usuario *</label>
+                <input type="text" class="register__input" id="userName" placeholder="Elige un usuario" required
+                    [(ngModel)]="registerData.userName" />
+            </div>
+
+            <div class="register__field">
+                <label for="password" class="register__label">Contraseña *</label>
+                <input type="password" class="register__input" id="password" placeholder="Crea una contraseña" required
+                    [(ngModel)]="registerData.password" />
+            </div>
+
+            <div class="register__field">
+                <label for="phoneNumber" class="register__label">Teléfono</label>
+                <input type="tel" class="register__input" id="phoneNumber" placeholder="Tu número de teléfono" required
+                    [(ngModel)]="registerData.phoneNumber" />
+            </div>
+
+            <div class="register__field">
+                <label for="birthDate" class="register__label">Fecha de Nacimiento</label>
+                <input type="date" class="register__input" id="birthDate" required [(ngModel)]="registerData.birthDate"
+                    [max]="maxDate" />
+            </div>
+
+            <div class="register__field">
+                <label for="address" class="register__label">Dirección</label>
+                <input type="text" class="register__input" id="address" placeholder="Tu dirección de envío" required
+                    [(ngModel)]="registerData.address" />
+            </div>
+        </div>
+
+        @if (errorMessage) {
+        <div class="register__message register__message--error">
+            {{ errorMessage }}
+        </div>
+        }
+
+        <div class="register__actions">
+            <button type="submit" class="register__button register__button--primary"
+                (click)="register()">Registrarse</button>
+            <button type="button" class="register__button register__button--secondary" routerLink="/login">Volver al
+                inicio de sesión</button>
+        </div>
+    </div>
+</main>

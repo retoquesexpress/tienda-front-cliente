@@ -17,6 +17,10 @@ export class LoginService {
         return this.httpLogin.post<ILogin>(this.url + '/login', { userName, password });
     }
 
+    register(registerData: any): Observable<any> {
+        return this.httpLogin.post<any>(this.url + '/register', registerData);
+    }
+
     saveToken(token: string) {
         localStorage.setItem('Token', token);
     }
