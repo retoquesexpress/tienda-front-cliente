@@ -1,9 +1,11 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { Router } from '@angular/router';
 import { CHeader } from "../../../ui/c-header/c-header";
 import { CFooter } from "../../../ui/c-footer/c-footer";
 import { SFuncionalidades } from '../../../../datos/Services/s-funcionalidades';
+import { LoginService } from '../../../../datos/Services/s-login';
 import { IServicios } from '../../../../datos/Models/i-servicios';
 
 @Component({
@@ -15,14 +17,18 @@ import { IServicios } from '../../../../datos/Models/i-servicios';
 })
 export class Reservas implements OnInit {
   private sFuncionalidades = inject(SFuncionalidades);
+  private loginService = inject(LoginService);
+  private router = inject(Router);
 
   serviciosDisponibles: IServicios[] = [];
   serviciosSeleccionados: IServicios[] = [];
   servicioSeleccionadoId: number | string = '';
   fechaReserva: string = '';
-  resumenReserva: any = null;
+  misReservas: any[] = [];
   minDate: string = '';
   errorMessage: string = '';
+  showSuccessMessage: boolean = false;
+  isLoggedIn: boolean = false;
 
   constructor() {
     this.setMinDate();
@@ -39,17 +45,38 @@ export class Reservas implements OnInit {
   }
 
   ngOnInit(): void {
-
-    this.sFuncionalidades.getAllServices().subscribe({
-      next: (data) => {
-        if (data && data.length > 0) {
-          this.serviciosDisponibles = data;
+    this.isLoggedIn = this.loginService.isRegistered(); // Solo cargar servicios si el usuario está loggeado
+    if (this.isLoggedIn) {
+      this.cargarReservas();
+      this.sFuncionalidades.getAllServices().subscribe({
+        next: (data) => {
+          if (data && data.length > 0) {
+            this.serviciosDisponibles = data;
+          }
+        },
+        error: (err) => {
+          console.error('Error al cargar servicios, usando datos de ejemplo', err);
         }
-      },
-      error: (err) => {
-        console.error('Error al cargar servicios, usando datos de ejemplo', err);
+      });
+    }
+  }
+
+  cargarReservas(): void {
+    const reservasGuardadas = localStorage.getItem('my_reservations');
+    if (reservasGuardadas) {
+      const reservas = JSON.parse(reservasGuardadas);
+      const ahora = new Date();
+
+      this.misReservas = reservas.filter((r: any) => new Date(r.fecha) > ahora);
+
+      if (this.misReservas.length !== reservas.length) {
+        localStorage.setItem('my_reservations', JSON.stringify(this.misReservas));
       }
-    });
+    }
+  }
+
+  navigateToLogin(): void {
+    this.router.navigate(['/login']);
   }
 
   agregarServicio(): void {
@@ -71,7 +98,6 @@ export class Reservas implements OnInit {
 
   reservar(): void {
     this.errorMessage = '';
-    this.resumenReserva = null;
 
     if (this.serviciosSeleccionados.length === 0) {
       this.errorMessage = 'Por favor, selecciona al menos un servicio.';
@@ -90,10 +116,31 @@ export class Reservas implements OnInit {
       return;
     }
 
-    this.resumenReserva = {
+    const nuevaReserva = {
+      id: Date.now(),
       servicios: [...this.serviciosSeleccionados],
       fecha: this.fechaReserva,
-      total: this.precioTotal
+      total: this.precioTotal,
+      fechaCreacion: new Date().toISOString()
     };
+
+    this.misReservas.push(nuevaReserva);
+    this.guardarReservas();
+
+
+    this.serviciosSeleccionados = [];
+    this.servicioSeleccionadoId = '';
+    this.fechaReserva = '';
+
+
+    this.showSuccessMessage = true;
+    setTimeout(() => {
+      this.showSuccessMessage = false;
+    }, 3000);
+  }
+
+  guardarReservas(): void {
+    this.misReservas.sort((a, b) => new Date(a.fecha).getTime() - new Date(b.fecha).getTime());
+    localStorage.setItem('my_reservations', JSON.stringify(this.misReservas));
   }
 }

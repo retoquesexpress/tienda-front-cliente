@@ -15,7 +15,13 @@
                             routerLink="/peluqueria">Peluqueria</a></li>
                 </ul>
             </li>
+            @if (isLoggedIn) {
+            <li class="header__nav-item">
+                <a class="header__nav-link header__nav-link--logout" (click)="logout()">Logout</a>
+            </li>
+            } @else {
             <li class="header__nav-item"><a class="header__nav-link" routerLink="/">Login</a></li>
+            }
         </ul>
     </nav>
 </header>

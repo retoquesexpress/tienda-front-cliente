@@ -34,7 +34,6 @@ export class Login {
         console.log('Respuesta del login:', data);
         this.loginService.saveToken(data.token);
 
-        // Extraemos el rol del objeto userDto si existe
         const userRole = data.userDto?.role;
         if (userRole) {
           this.loginService.saveRole(userRole);

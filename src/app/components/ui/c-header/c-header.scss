@@ -8,6 +8,8 @@
     display: flex;
     align-items: center;
     padding: var(--header-padding);
+    padding-bottom: var(--mlt-sys-padding-10);
+    padding-top: var(--mlt-sys-padding-10);
     height: var(--header-height);
     background-color: var(--header-bg);
     box-shadow: var(--header-shadow);
@@ -70,6 +72,16 @@
         &:hover {
             opacity: 0.8;
             border-bottom: 2px solid var(--mlt-sys-white);
+        }
+
+        &--logout {
+            --logout-color: var(--mlt-sys-white);
+
+            color: var(--logout-color);
+
+            &:hover {
+                border-bottom-color: var(--mlt-sys-white);
+            }
         }
     }
 
