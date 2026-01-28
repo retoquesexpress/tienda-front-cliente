@@ -211,6 +211,7 @@
                 align-items: var(--li-align-items);
                 padding: var(--li-padding);
                 border-bottom: var(--li-border-bottom);
+                font-family: poppins;
 
                 &:last-child {
                     --last-border-bottom: none;
@@ -232,10 +233,11 @@
 
         &-price {
             --price-font-weight: 700;
-            --price-color: var(--mlt-sys-primary);
+            --price-color: var(--mlt-sys-light);
 
             font-weight: var(--price-font-weight);
             color: var(--price-color);
+            font-family: poppins;
         }
 
         &-remove {
@@ -279,13 +281,15 @@
             --total-margin-top: var(--mlt-sys-margin-14);
             --total-font-size: var(--mlt-sys-font-size-20);
             --total-font-weight: 700;
-            --total-color: var(--mlt-sys-primary);
+            --total-color: var(--mlt-sys-light);
 
             text-align: var(--total-text-align);
             margin-top: var(--total-margin-top);
             font-size: var(--total-font-size);
             font-weight: var(--total-font-weight);
             color: var(--total-color);
+            font-family: poppins;
+
         }
     }
 
@@ -568,18 +572,21 @@
             color: var(--mlt-sys-white);
             font-weight: 700;
             font-size: var(--mlt-sys-font-size-18);
+            font-family: poppins;
         }
 
         &-total {
             color: var(--mlt-sys-white);
             font-weight: 700;
             font-size: var(--mlt-sys-font-size-18);
+            font-family: poppins;
         }
 
         &-label {
             color: var(--mlt-sys-white);
             font-size: var(--mlt-sys-font-size-14);
             margin-bottom: var(--mlt-sys-margin-8);
+            font-family: poppins;
         }
 
         &-services {
@@ -593,6 +600,8 @@
                 color: var(--mlt-sys-white);
                 padding: 4px 0;
                 font-size: var(--mlt-sys-font-size-14);
+                            font-family: poppins;
+
 
                 span {
                     color: var(--mlt-sys-white);
