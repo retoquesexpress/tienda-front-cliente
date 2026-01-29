@@ -9,8 +9,10 @@ import { ICategorias } from '../Models/i-categorias';
 })
 export class SFuncionalidades {
 
-  private miUrl = 'http://localhost:8080/api/services';
-  private micategoriaUrl = 'http://localhost:8080/api/categories';
+  // private miUrl = 'http://localhost:8080/api/services';
+  // private micategoriaUrl = 'http://localhost:8080/api/categories'; 
+  private miUrl = 'http://localhost:8081/api/services';
+  private micategoriaUrl = 'http://localhost:8081/api/categories';
   private miHttp = inject(HttpClient);
 
 
