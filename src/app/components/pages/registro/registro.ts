@@ -35,6 +35,12 @@ export class RegistroComponent {
             return;
         }
 
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(this.registerData.email)) {
+            this.errorMessage = 'Por favor, introduce un correo electrónico válido';
+            return;
+        }
+
         if (this.registerData.birthDate > this.maxDate) {
             this.errorMessage = 'La fecha de nacimiento no puede ser futura.';
             return;

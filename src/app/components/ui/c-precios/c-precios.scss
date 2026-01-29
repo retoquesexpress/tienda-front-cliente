@@ -17,7 +17,7 @@
   }
 
   &__title {
-    --title-font-size: var(--mlt-sys-font-size-30);
+    --title-font-size: var(--mlt-sys-font-size-40);
     --title-margin-bottom: var(--mlt-sys-spacer-32);
     --title-font-weight: var(--mlt-sys-weight-500);
 
@@ -25,6 +25,7 @@
     margin-bottom: var(--title-margin-bottom);
     font-weight: var(--title-font-weight);
     text-align: center;
+    font-family: poppins;
   }
 
   &__list {
@@ -52,11 +53,13 @@
   }
 
   &__service {
-    --service-font-size: 0.95rem;
+    --service-font-size: var(--mlt-sys-font-size-18);
     --service-letter-spacing: 0.5px;
 
     font-size: var(--service-font-size);
     letter-spacing: var(--service-letter-spacing);
+    font-family: poppins;
+
   }
 
   &__price {

@@ -147,11 +147,7 @@
 
 
     &-precios {
-        --precios-bg: var(--mlt-sys-light);
-        --precios-padding: var(--mlt-sys-padding-120) 0 0 0;
-
-        background-color: var(--precios-bg);
-        padding: var(--precios-padding);
+      
 
         &__container {
             --container-width: 100%;

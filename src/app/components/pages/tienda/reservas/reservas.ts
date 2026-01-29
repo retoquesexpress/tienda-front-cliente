@@ -45,7 +45,7 @@ export class Reservas implements OnInit {
   }
 
   ngOnInit(): void {
-    this.isLoggedIn = this.loginService.isRegistered(); // Solo cargar servicios si el usuario está loggeado
+    this.isLoggedIn = this.loginService.isRegistered();
     if (this.isLoggedIn) {
       this.cargarReservas();
       this.sFuncionalidades.getAllServices().subscribe({
