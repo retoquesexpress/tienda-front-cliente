@@ -22,6 +22,15 @@ $colors: (
   brand-primary: #571e2d,
   brand-secondary: #b99880,
   white: #ffffff,
+  color-surface-container-high: #ECE6F0,
+  color-on-surface: #1D1B20,
+  color-surface: #FEF7FF,
+  color-outline-variant: #CAC4D0,
+  color-on-surface-variant: #49454F,
+  color-primary: #571e2d,
+  color-outline: #79747E,
+  color-surface-container: #F3EDF7,
+  color-on-primary: #FFFFFF,
 );
 
 $font-sizes: (
@@ -43,10 +52,18 @@ $font-sizes: (
   42: 42px,
   48: 48px,
   50: 50px,
+  typescale-display-medium: 45px,
+  typescale-display-small: 36px,
+  typescale-title-large: 22px,
+  typescale-title-medium: 16px,
 );
 $font-families: (
   titulos: 'Poppins',
-  textos1: 'Sorts Mill Goudy'
+  textos1: 'Sorts Mill Goudy',
+  typescale-display-medium: 'Poppins',
+  typescale-title-medium: 'Poppins',
+  typescale-title-large: 'Poppins',
+  typescale-display-small: 'Poppins'
 );
 
 $margin-sizes: (
@@ -57,6 +74,7 @@ $margin-sizes: (
   8: 8px,
   10: 10px,
   12: 12px,
+  16: 16px,
   20: 20px,
   24: 24px,
   30: 30px,
@@ -117,6 +135,7 @@ $height-sizes: (
 $border-radiuses: (
   2: 2px,
   4: 4px,
+  8: 8px,
   10: 10px,
   12: 12px,
   15: 15px,
@@ -142,6 +161,7 @@ $padding-sizes: (
   15: 15px,
   16: 16px,
   18: 18px,
+  24: 24px,
   20: 20px,
   25: 25px,
   30: 30px,
@@ -177,6 +197,11 @@ $shadows: (
   premium: 0 30px 60px rgba(0, 0, 0, 0.15),
   btn: 0 10px 20px rgba(87, 30, 45, 0.3),
   btn-hover: 0 15px 30px rgba(87, 30, 45, 0.4),
+  card: 0 8px 32px 0 rgba(0, 0, 0, 0.37),
+  card-hover: 0 10px 40px rgba(0, 0, 0, 0.5),
+  elevation-1: 0px 1px 3px 1px rgba(0, 0, 0, 0.15),
+  elevation-2: 0px 2px 6px 2px rgba(0, 0, 0, 0.15),
+  elevation-3: 0px 4px 8px 3px rgba(0, 0, 0, 0.15),
 );
 
 

@@ -5,6 +5,7 @@ import { Peluqueria } from '../tienda/peluqueria/peluqueria';
 import { Inicio } from '../tienda/inicio/inicio';
 import { Maquillaje } from '../tienda/maquillaje/maquillaje';
 import { Reservas } from '../tienda/reservas/reservas';
+import { Carrito } from '../tienda/carrito/carrito';
 import { RegistroComponent } from '../registro/registro';
 
 export const routes: Routes = [
@@ -14,6 +15,7 @@ export const routes: Routes = [
     { path: 'peluqueria', component: Peluqueria },
     { path: 'maquillaje', component: Maquillaje },
     { path: 'reservas', component: Reservas },
+    { path: 'carrito', component: Carrito },
     { path: 'registro', component: RegistroComponent },
     { path: '**', redirectTo: '' },
 

@@ -1,0 +1,95 @@
+<c-header></c-header>
+
+<div class="carrito">
+    <main class="carrito__main">
+        <h1 class="carrito__title">Resumen de tu Reserva</h1>
+
+        <div class="carrito__layout">
+            <section class="carrito__items-list">
+                @for (item of cartItems; track item.service.idService) {
+                <div class="carrito__item">
+                    <img [src]="item.service.pictureUrl" [alt]="item.service.name" class="carrito__item-img">
+                    <div class="carrito__item-details">
+                        <h3 class="carrito__item-name">{{ item.service.name }}</h3>
+                        <p class="carrito__item-price">Precio unitario: {{ item.service.price | number:'1.2-2' }}€</p>
+                    </div>
+                    <div class="carrito__item-qty">
+                        <div class="carrito__item-qty-controls">
+                            <button class="carrito__item-qty-btn" (click)="decreaseQuantity(item)">-</button>
+                            <span class="carrito__item-qty-number">{{ item.quantity }}</span>
+                            <button class="carrito__item-qty-btn" (click)="increaseQuantity(item)">+</button>
+                        </div>
+                    </div>
+                    <div class="carrito__item-total">
+                        <span>{{ getServiceTotal(item) | number:'1.2-2' }}€</span>
+                    </div>
+                </div>
+                }
+            </section>
+
+            <aside class="carrito__sidebar">
+                <div class="carrito__summary-card">
+                    <h2 class="carrito__summary-title">Total a Pagar</h2>
+
+                    <div class="carrito__summary-row">
+                        <span>Fecha Reserva:</span>
+                        <span>{{ fechaReserva | date:'dd/MM/yyyy HH:mm' }}</span>
+                    </div>
+
+                    <div class="carrito__summary-total">
+                        {{ totalPrice | number:'1.2-2' }}€
+                    </div>
+
+                    <hr class="carrito__divider">
+
+                    <form class="carrito__payment-form" (submit)="confirmarPago(); $event.preventDefault()">
+                        <h3 class="carrito__form-title">Datos de Tarjeta</h3>
+
+                        <div class="carrito__form-group">
+                            <label>Nombre en la tarjeta</label>
+                            <input type="text" [(ngModel)]="cardName" name="cardName" placeholder="Juan Perez" required
+                                class="carrito__input">
+                        </div>
+
+                        <div class="carrito__form-group">
+                            <label>Número de tarjeta</label>
+                            <input type="text" [(ngModel)]="cardNumber" name="cardNumber"
+                                placeholder="0000 0000 0000 0000" required class="carrito__input">
+                        </div>
+
+                        <div class="carrito__form-row">
+                            <div class="carrito__form-group">
+                                <label>Caducidad</label>
+                                <input type="text" [(ngModel)]="cardExpiry" name="cardExpiry" placeholder="MM/YY"
+                                    required class="carrito__input">
+                            </div>
+                            <div class="carrito__form-group">
+                                <label>CVV</label>
+                                <input type="text" [(ngModel)]="cardCvv" name="cardCvv" placeholder="123" required
+                                    class="carrito__input">
+                            </div>
+                        </div>
+
+                        <button type="submit" class="carrito__pay-btn">Confirmar Pago de Reserva</button>
+                    </form>
+                </div>
+            </aside>
+        </div>
+    </main>
+</div>
+
+@if(showSuccessMessage) {
+<div class="carrito__success-modal">
+    <div class="carrito__success-content">
+        <svg xmlns="http://www.w3.org/2000/svg" width="60" height="60" viewBox="0 0 24 24" fill="none" stroke="#4CAF50"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+        </svg>
+        <h2>¡Pago Confirmado!</h2>
+        <p>Tu reserva ha sido procesada correctamente.</p>
+    </div>
+</div>
+}
+
+<c-footer></c-footer>

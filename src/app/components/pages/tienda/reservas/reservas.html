@@ -21,79 +21,119 @@
                 </div>
             </div>
             } @else {
-            <div class="reservas__group">
-                <label class="reservas__label" for="servicio-dropdown">Selecciona un servicio</label>
-                <select class="reservas__select" id="servicio-dropdown" [(ngModel)]="servicioSeleccionadoId"
-                    (change)="agregarServicio()">
-                    <option value="" disabled selected>Escoge un servicio...</option>
-                    @for (service of serviciosDisponibles; track service.idService) {
-                    <option [value]="service.idService">
-                        {{ service.name }} - {{ service.price | number:'1.2-2' }}€
-                    </option>
-                    }
-                </select>
+
+            <div class="reservas__layout">
+                <!-- Sidebar de Categorías -->
+                <aside class="reservas__sidebar">
+                    <h3 class="reservas__sidebar-title">Categorías</h3>
+                    <ul class="reservas__categories">
+                        @for (cat of categories; track cat.idCategory) {
+                        <li class="reservas__category-item"
+                            [class.active]="selectedCategory?.idCategory === cat.idCategory"
+                            (click)="selectCategory(cat)">
+                            {{ cat.name }}
+                            <svg class="reservas__chevron" xmlns="http://www.w3.org/2000/svg" width="24" height="24"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="m9 18 6-6-6-6" />
+                            </svg>
+                        </li>
+                        }
+                    </ul>
+                </aside>
+
+                <!-- Panel Principal de Servicios -->
+                <section class="reservas__content">
+                    <div class="reservas__services-grid">
+                        @for (service of currentServices; track service.idService) {
+                        <div class="reservas__service-card" [class.selected]="getQuantity(service.idService) > 0">
+                            <div class="reservas__service-image">
+                                <img [src]="service.pictureUrl" [alt]="service.name" class="reservas__img">
+
+
+                            </div>
+                            <div class="reservas__service-info">
+                                <h4 class="reservas__service-name">{{ service.name }}</h4>
+                                <p class="reservas__service-description">{{ service.description }}</p>
+
+                                <div class="reservas__service-footer">
+                                    <div class="reservas__qty-controls">
+                                        <button class="reservas__qty-btn" (click)="decreaseService(service, $event)"
+                                            [disabled]="getQuantity(service.idService) === 0">-</button>
+                                        <span class="reservas__qty-number">{{ getQuantity(service.idService) }}</span>
+                                        <button class="reservas__qty-btn"
+                                            (click)="addService(service, $event)">+</button>
+                                    </div>
+                                    <span class="reservas__service-price">{{ service.price | number:'1.2-2' }}€</span>
+                                </div>
+                            </div>
+                        </div>
+                        } @empty {
+                        <div class="reservas__empty-state">No hay servicios en esta categoría.</div>
+                        }
+                    </div>
+                </section>
             </div>
 
-            @if (serviciosSeleccionados.length > 0) {
-            <div class="reservas__selected">
-                <h3>Servicios seleccionados</h3>
-                <ul>
-                    @for (service of serviciosSeleccionados; track service.idService) {
-                    <li>
-                        <span>{{ service.name }}</span>
-                        <div class="reservas__selected-actions">
-                            <span class="reservas__selected-price">{{ service.price | number:'1.2-2' }}€</span>
-                            <button class="reservas__selected-remove"
-                                (click)="eliminarServicio(service.idService)">×</button>
-                        </div>
-                    </li>
+            <!-- Panel de Resumen y Confirmación -->
+            <div class="reservas__summary-panel">
+                <!-- Left: Total Information -->
+                <div class="reservas__total-section">
+                    <div class="reservas__total-row">
+                        <span class="reservas__total-label">TOTAL:</span>
+                        <span class="reservas__total-amount">{{ precioTotal | number:'1.2-2' }}€</span>
+                    </div>
+                    <span class="reservas__total-count">Servicios seleccionados: {{ getTotalServicesCount() }}</span>
+                </div>
+
+                <!-- Right: Actions -->
+                <div class="reservas__booking-actions">
+                    <div class="reservas__date-picker">
+                        <label class="reservas__label" for="fecha">Fecha y hora:</label>
+                        <input type="datetime-local" id="fecha" [(ngModel)]="fechaReserva" [min]="minDate"
+                            class="reservas__input">
+                    </div>
+
+                    @if (showSuccessMessage) {
+                    <div class="reservas__success">
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                            stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                        ¡Reserva realizada con éxito!
+                    </div>
                     }
-                </ul>
-                <div class="reservas__selected-total">
-                    Total: {{ precioTotal | number:'1.2-2' }}€
+
+                    @if (errorMessage) {
+                    <div class="reservas__error">
+                        {{ errorMessage }}
+                    </div>
+                    }
+                    <button class="reservas__button" (click)='goToCart()'
+                        [disabled]="getTotalServicesCount() === 0">CONTINUAR</button>
                 </div>
             </div>
-            }
-
-            <div class="reservas__group">
-                <label class="reservas__label" for="fecha">Selecciona una fecha y hora</label>
-                <input type="datetime-local" id="fecha" [(ngModel)]="fechaReserva" [min]="minDate"
-                    class="reservas__input">
-            </div>
-
-            @if (showSuccessMessage) {
-            <div class="reservas__success">
-                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor"
-                    stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
-                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
-                </svg>
-                ¡Reserva realizada con éxito!
-            </div>
-            }
-
-            @if (errorMessage) {
-            <div class="reservas__error">
-                {{ errorMessage }}
-            </div>
-            }
-            <button class="reservas__button" (click)='reservar()'>Reservar Ahora</button>
 
             @if (misReservas.length > 0) {
-            <div class="reservas__summary">
+            <div class="reservas__history">
                 <h2>Mis Reservas</h2>
                 <div class="reservas__list">
                     @for (reserva of misReservas; track reserva.id) {
                     <div class="reservas__card">
                         <div class="reservas__card-header">
                             <span class="reservas__card-date">{{ reserva.fecha | date:'dd/MM/yyyy HH:mm' }}</span>
-                            <span class="reservas__card-total">{{ reserva.total | number:'1.2-2' }}</span>
+                            <span class="reservas__card-total">{{ reserva.total | number:'1.2-2' }}€</span>
                         </div>
                         <div class="reservas__card-body">
                             <p class="reservas__card-label">Servicios incluidos:</p>
                             <ul class="reservas__card-services">
-                                @for (s of reserva.servicios; track s.idService) {
-                                <li>{{ s.name }} <span>{{ s.price | number:'1.2-2' }}€</span></li>
+                                @for (item of getGroupedServices(reserva.servicios); track $index) {
+                                <li>
+                                    <span>{{ item.name }} @if(item.quantity > 1) { <span style="opacity:0.7">(x{{
+                                            item.quantity }})</span> }</span>
+                                    <span>{{ item.total | number:'1.2-2' }}€</span>
+                                </li>
                                 }
                             </ul>
                         </div>
