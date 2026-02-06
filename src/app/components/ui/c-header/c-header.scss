@@ -58,6 +58,88 @@
                 transform: translateY(0);
             }
         }
+
+        &--user {
+            position: relative;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+        }
+    }
+
+    &__user-icon {
+        color: var(--mlt-sys-white);
+        transition: opacity 0.3s ease;
+        display: flex;
+        align-items: center;
+
+        &:hover {
+            opacity: 0.8;
+        }
+
+        svg {
+            stroke: var(--mlt-sys-white);
+        }
+    }
+
+    &__user-menu {
+        --menu-bg: var(--mlt-sys-brand-primary);
+        --menu-width: 200px;
+        --menu-shadow: var(--mlt-sys-shadow-large);
+
+        position: absolute;
+        top: 100%;
+        right: 0;
+        width: var(--menu-width);
+        background-color: var(--menu-bg);
+        box-shadow: var(--menu-shadow);
+        border-radius: 0 0 var(--mlt-sys-radius-8) var(--mlt-sys-radius-8);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        padding: var(--mlt-sys-spacer-12);
+        display: flex;
+        flex-direction: column;
+        gap: var(--mlt-sys-spacer-10);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(10px);
+        transition: all 0.3s ease;
+        z-index: 1001;
+
+        &--active {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+    }
+
+    &__user-name {
+        color: var(--mlt-sys-white);
+        font-size: var(--mlt-sys-font-size-16);
+        font-family: var(--mlt-sys-font-titulos);
+        text-align: center;
+        padding-bottom: var(--mlt-sys-spacer-8);
+    }
+
+    &__user-divider {
+        border: 0;
+        height: 1px;
+        background-color: rgba(255, 255, 255, 0.2);
+        margin: 0;
+    }
+
+    &__user-logout {
+        color: var(--mlt-sys-white);
+        text-decoration: none;
+        font-size: var(--mlt-sys-font-size-14);
+        text-align: center;
+        padding: var(--mlt-sys-spacer-8);
+        border-radius: var(--mlt-sys-radius-4);
+        transition: background-color 0.3s ease;
+        cursor: pointer;
+
+        &:hover {
+            background-color: rgba(255, 255, 255, 0.1);
+        }
     }
 
     &__nav-link {

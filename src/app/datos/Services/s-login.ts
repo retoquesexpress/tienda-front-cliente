@@ -37,6 +37,14 @@ export class LoginService {
         return localStorage.getItem('Role');
     }
 
+    saveUserName(userName: string) {
+        localStorage.setItem('UserName', userName);
+    }
+
+    getUserName(): string | null {
+        return localStorage.getItem('UserName');
+    }
+
     isRegistered(): boolean {
         const token = this.getToken();
         const logged = token != null;
@@ -53,6 +61,7 @@ export class LoginService {
     logOut() {
         localStorage.removeItem('Token');
         localStorage.removeItem('Role');
+        localStorage.removeItem('UserName');
         this.isLogged.next(false);
     }
 

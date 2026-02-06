@@ -29,6 +29,8 @@ export class Carrito implements OnInit {
     cardCvv: string = '';
 
     showSuccessMessage: boolean = false;
+    showErrorMessage: boolean = false;
+    errorMessage: string = '';
 
     ngOnInit(): void {
         this.cartItems = this.sCarrito.getCartItems();
@@ -36,7 +38,6 @@ export class Carrito implements OnInit {
         this.totalPrice = this.sCarrito.getTotalPrice();
 
         if (this.cartItems.length === 0) {
-            // If no items, redirect back to reservations
             this.router.navigate(['/reservas']);
         }
     }
@@ -71,8 +72,11 @@ export class Carrito implements OnInit {
     }
 
     confirmarPago(): void {
+        this.showErrorMessage = false;
+
         if (!this.cardName || !this.cardNumber || !this.cardExpiry || !this.cardCvv) {
-            alert('Por favor, rellena todos los datos de la tarjeta.');
+            this.errorMessage = 'Por favor, rellena todos los datos de la tarjeta.';
+            this.showErrorMessage = true;
             return;
         }
 

@@ -33,6 +33,8 @@ export class Login {
       next: data => {
         console.log('Respuesta del login:', data);
         this.loginService.saveToken(data.token);
+        const nameToSave = data.userDto.name
+        this.loginService.saveUserName(nameToSave);
 
         const userRole = data.userDto?.role;
         if (userRole) {

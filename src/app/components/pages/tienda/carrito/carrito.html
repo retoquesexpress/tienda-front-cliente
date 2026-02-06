@@ -70,6 +70,12 @@
                             </div>
                         </div>
 
+                        @if (showErrorMessage) {
+                        <div class="carrito__error-message">
+                            {{ errorMessage }}
+                        </div>
+                        }
+
                         <button type="submit" class="carrito__pay-btn">Confirmar Pago de Reserva</button>
                     </form>
                 </div>

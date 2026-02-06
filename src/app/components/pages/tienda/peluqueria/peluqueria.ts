@@ -10,7 +10,7 @@ import { SFuncionalidades } from '../../../../datos/Services/s-funcionalidades';
 
 @Component({
   selector: 'app-peluqueria',
-  imports: [FotoPrincipalComponent, CPrecios, CBloque3Imagenes, CHeader, CFooter],
+  imports: [FotoPrincipalComponent, CPrecios, CBloque3Imagenes, CHeader, CFooter, RouterLink],
   templateUrl: './peluqueria.html',
   styleUrl: './peluqueria.scss'
 })

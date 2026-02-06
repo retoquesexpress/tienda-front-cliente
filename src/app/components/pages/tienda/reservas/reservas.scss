@@ -232,6 +232,8 @@
         font-weight: 700;
         min-width: 20px;
         text-align: center;
+        font-family: var(--mlt-sys-font-titulos);
+
     }
 
     &__qty-btn {
@@ -303,8 +305,8 @@
         font-weight: 700;
         font-size: var(--mlt-sys-font-size-18);
         margin-left: auto;
+        font-family: var(--mlt-sys-font-titulos);
 
-        margin-left: auto;
     }
 
     &__empty-state {
@@ -367,6 +369,8 @@
         font-size: 16px;
         color: rgba(255, 255, 255, 0.6);
         font-weight: 500;
+        font-family: var(--mlt-sys-font-titulos);
+
     }
 
     &__booking-actions {
@@ -501,12 +505,16 @@
                 color: var(--mlt-sys-white);
                 font-weight: 500;
                 font-size: var(--mlt-sys-font-size-16);
+                font-family: var(--mlt-sys-font-titulos);
+
             }
 
             .reservas__card-total {
                 color: var(--mlt-sys-secondary);
                 font-weight: 700;
                 font-size: var(--mlt-sys-font-size-18);
+                font-family: var(--mlt-sys-font-titulos);
+
             }
         }
 
@@ -524,6 +532,8 @@
             list-style: none;
             padding: 0;
             color: rgba(255, 255, 255, 0.8);
+            font-family: var(--mlt-sys-font-titulos);
+
 
             li {
                 display: flex;
