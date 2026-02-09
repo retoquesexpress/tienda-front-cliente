@@ -23,7 +23,6 @@
             } @else {
 
             <div class="reservas__layout">
-                <!-- Sidebar de Categorías -->
                 <aside class="reservas__sidebar">
                     <h3 class="reservas__sidebar-title">Categorías</h3>
                     <ul class="reservas__categories">
@@ -42,7 +41,6 @@
                     </ul>
                 </aside>
 
-                <!-- Panel Principal de Servicios -->
                 <section class="reservas__content">
                     <div class="reservas__services-grid">
                         @for (service of currentServices; track service.idService) {
@@ -75,9 +73,7 @@
                 </section>
             </div>
 
-            <!-- Panel de Resumen y Confirmación -->
             <div class="reservas__summary-panel">
-                <!-- Left: Total Information -->
                 <div class="reservas__total-section">
                     <div class="reservas__total-row">
                         <span class="reservas__total-label">TOTAL:</span>
@@ -86,7 +82,6 @@
                     <span class="reservas__total-count">Servicios seleccionados: {{ getTotalServicesCount() }}</span>
                 </div>
 
-                <!-- Right: Actions -->
                 <div class="reservas__booking-actions">
                     <div class="reservas__date-picker">
                         <label class="reservas__label" for="fecha">Fecha y hora:</label>
@@ -128,11 +123,14 @@
                         <div class="reservas__card-body">
                             <p class="reservas__card-label">Servicios incluidos:</p>
                             <ul class="reservas__card-services">
-                                @for (item of getGroupedServices(reserva.servicios); track $index) {
+                                @for (item of reserva.servicios; track $index) {
                                 <li>
-                                    <span>{{ item.name }} @if(item.quantity > 1) { <span style="opacity:0.7">(x{{
-                                            item.quantity }})</span> }</span>
-                                    <span>{{ item.total | number:'1.2-2' }}€</span>
+                                    <div class="reservas__card-service-item">
+                                        <img [src]="item.pictureUrl" [alt]="item.name"
+                                            class="reservas__card-service-img">
+                                        <span>{{ item.name }} @if(item.quantity > 1) { <span style="opacity:0.7">(x{{
+                                                item.quantity }})</span> }</span>
+                                    </div>
                                 </li>
                                 }
                             </ul>

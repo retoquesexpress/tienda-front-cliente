@@ -548,6 +548,10 @@
         }
     }
 
+    &__list &__card-service-img {
+        display: none;
+    }
+
     &__not-logged {
         display: flex;
         align-items: center;

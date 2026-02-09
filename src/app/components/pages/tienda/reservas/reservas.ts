@@ -9,6 +9,7 @@ import { LoginService } from '../../../../datos/Services/s-login';
 import { IServicios } from '../../../../datos/Models/i-servicios';
 import { ICategorias } from '../../../../datos/Models/i-categorias';
 import { SCarrito } from '../../../../datos/Services/s-carrito';
+import { IBookingItem } from '../../../../datos/Models/i-booking-item';
 
 @Component({
   selector: 'app-reservas',
@@ -26,10 +27,8 @@ export class Reservas implements OnInit {
   categories: ICategorias[] = [];
   selectedCategory: ICategorias | null = null;
 
-  // Services filtered by category (current view)
   currentServices: IServicios[] = [];
 
-  // Map to store serviceId -> quantity
   selectedServicesMap: Map<number, number> = new Map();
 
   fechaReserva: string = '';
@@ -61,6 +60,24 @@ export class Reservas implements OnInit {
     }
   }
 
+  private getFullPictureUrl(service: any): string {
+    if (!service || !service.pictureUrl) return '';
+
+    const pictureUrl = service.pictureUrl;
+    if (pictureUrl.startsWith('assets/') || pictureUrl.startsWith('http') || pictureUrl.startsWith('/assets/')) {
+      return pictureUrl;
+    }
+
+    let folder = '';
+    const catId = service.category?.idCategory || (typeof service.idCategory === 'number' ? service.idCategory : null);
+
+    if (catId === 1) folder = 'unas';
+    else if (catId === 2) folder = 'maquillaje';
+    else if (catId === 3) folder = 'peluqueria';
+
+    return folder ? `/assets/${folder}/${pictureUrl}` : `/assets/${pictureUrl}`;
+  }
+
   loadCategories(): void {
     this.sFuncionalidades.getAllCategories().subscribe({
       next: (data) => {
@@ -79,7 +96,10 @@ export class Reservas implements OnInit {
     this.selectedCategory = category;
     this.sFuncionalidades.getServicesByCategory(category.idCategory).subscribe({
       next: (data) => {
-        this.currentServices = this.assignLocalImages(data, category.name);
+        this.currentServices = data.map(service => ({
+          ...service,
+          pictureUrl: this.getFullPictureUrl(service)
+        }));
       },
       error: (err) => {
         console.error('Error al cargar servicios de la categoria', err);
@@ -88,65 +108,40 @@ export class Reservas implements OnInit {
     });
   }
 
-  private assignLocalImages(services: IServicios[], categoryName: string): IServicios[] {
-    const normalize = (str: string) => str.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g, "");
-    const catName = normalize(categoryName);
-
-    let images: string[] = [];
-
-    if (catName.includes('maquillaje')) {
-      images = [
-        '/assets/maquillaje/MaquillajeArtisticoPanel3.png',
-        '/assets/maquillaje/MaquillajeEventosPanel2.png',
-        '/assets/maquillaje/MaquillajeSencilloPanel1.png',
-        '/assets/maquillaje/FotoGrandeMaquillaje.png'
-      ];
-    } else if (catName.includes('peluqueria')) {
-      images = [
-        '/assets/peluqueria/CortePanel.png',
-        '/assets/peluqueria/PeinadoPanel.png',
-        '/assets/peluqueria/BarbaPanel.png',
-        '/assets/peluqueria/FotoGrandePeluqueria.png'
-      ];
-    } else if (catName.includes('una') || catName.includes('manicura')) {
-      images = [
-        '/assets/unas/ManicuraFrancesaBloque1.jpg',
-        '/assets/unas/SemipermanenteBloque2.png',
-        '/assets/unas/UnasOrnamentadasBloque3.jpg',
-        '/assets/unas/UñasAzules.jpg',
-        '/assets/unas/UñasPuntitos.jpg'
-      ];
-    }
-
-    if (images.length === 0) return services;
-
-    return services.map((service, index) => {
-      return {
-        ...service,
-        pictureUrl: images[index % images.length]
-      };
-    });
-  }
 
   cargarReservas(): void {
-    const reservasGuardadas = localStorage.getItem('my_reservations');
-    if (reservasGuardadas) {
-      const reservas = JSON.parse(reservasGuardadas);
-      const ahora = new Date();
+    const userDataStr = localStorage.getItem('user_data');
+    if (!userDataStr) return;
 
-      this.misReservas = reservas.filter((r: any) => new Date(r.fecha) > ahora);
+    const userData = JSON.parse(userDataStr);
+    const idUser = userData.idUser;
 
-      if (this.misReservas.length !== reservas.length) {
-        localStorage.setItem('my_reservations', JSON.stringify(this.misReservas));
+    this.sCarrito.getBookingsByUser(idUser).subscribe({
+      next: (bookings) => {
+        this.misReservas = bookings.map(b => ({
+          id: b.idBooking,
+          total: b.totalPrice,
+          fecha: b.items && b.items.length > 0 ? b.items[0].bookingDate : null,
+          servicios: b.items.map((item: any) => ({
+            name: item.serviceName,
+            quantity: item.quantity,
+            pictureUrl: this.getFullPictureUrl({
+              pictureUrl: item.pictureUrl,
+              category: { idCategory: item.idCategory }
+            })
+          }))
+        }));
+      },
+      error: (err) => {
+        console.error('Error al cargar historial de reservas', err);
       }
-    }
+    });
   }
 
   navigateToLogin(): void {
     this.router.navigate(['/login']);
   }
 
-  // --- Quantity Logic ---
 
   getQuantity(serviceId: number): number {
     return this.selectedServicesMap.get(serviceId) || 0;
@@ -217,38 +212,19 @@ export class Reservas implements OnInit {
       return;
     }
 
-    const cartItems: { service: IServicios, quantity: number }[] = [];
+    const cartItems: IBookingItem[] = [];
     this.selectedServicesMap.forEach((qty, id) => {
       const service = this.serviceObjects.get(id);
       if (service) {
-        cartItems.push({ service: service, quantity: qty });
+        cartItems.push({
+          service: service,
+          quantity: qty,
+          bookingDate: this.fechaReserva
+        });
       }
     });
 
-    this.sCarrito.setCart(cartItems, this.fechaReserva);
+    this.sCarrito.setCart(cartItems);
     this.router.navigate(['/carrito']);
-  }
-
-  guardarReservas(): void {
-    this.misReservas.sort((a, b) => new Date(a.fecha).getTime() - new Date(b.fecha).getTime());
-    localStorage.setItem('my_reservations', JSON.stringify(this.misReservas));
-  }
-  getGroupedServices(services: IServicios[]): { name: string, quantity: number, total: number }[] {
-    const grouped = new Map<number, { name: string, quantity: number, price: number }>();
-
-    services.forEach(service => {
-      if (grouped.has(service.idService)) {
-        const item = grouped.get(service.idService)!;
-        item.quantity += 1;
-      } else {
-        grouped.set(service.idService, { name: service.name, quantity: 1, price: service.price });
-      }
-    });
-
-    return Array.from(grouped.values()).map(item => ({
-      name: item.name,
-      quantity: item.quantity,
-      total: item.price * item.quantity
-    }));
   }
 }

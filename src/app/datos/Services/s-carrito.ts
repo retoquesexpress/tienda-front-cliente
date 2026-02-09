@@ -1,34 +1,76 @@
-import { Injectable } from '@angular/core';
-import { IServicios } from '../Models/i-servicios';
+import { Injectable, inject } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { Observable } from 'rxjs';
+import { IBookingItem } from '../Models/i-booking-item';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SCarrito {
-  private _cartItems: { service: IServicios, quantity: number }[] = [];
-  private _reservationDate: string = '';
+  private http = inject(HttpClient);
+  private apiUrl = 'http://localhost:8080/api/bookings';
 
-  constructor() { }
+  private _cartItems: IBookingItem[] = [];
+  private readonly CART_KEY = 'shopping_cart';
 
-  setCart(items: { service: IServicios, quantity: number }[], date: string) {
+  constructor() {
+    this.loadCartFromStorage();
+  }
+
+  private loadCartFromStorage() {
+    const savedCart = localStorage.getItem(this.CART_KEY);
+    if (savedCart) {
+      try {
+        this._cartItems = JSON.parse(savedCart);
+      } catch (e) {
+        console.error('Error parsing cart from localStorage', e);
+        this._cartItems = [];
+      }
+    }
+  }
+
+  setCart(items: IBookingItem[]) {
     this._cartItems = items;
-    this._reservationDate = date;
+    localStorage.setItem(this.CART_KEY, JSON.stringify(this._cartItems));
   }
 
-  getCartItems() {
+  getCartItems(): IBookingItem[] {
     return this._cartItems;
-  }
-
-  getReservationDate() {
-    return this._reservationDate;
   }
 
   clearCart() {
     this._cartItems = [];
-    this._reservationDate = '';
+    localStorage.removeItem(this.CART_KEY);
   }
 
   getTotalPrice(): number {
     return this._cartItems.reduce((acc, item) => acc + (item.service.price * item.quantity), 0);
+  }
+
+  createBooking(idUser: number, items: IBookingItem[]): Observable<any> {
+    const token = localStorage.getItem('Token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+
+    const bookingRequest = {
+      idUser: idUser,
+      items: items.map(item => ({
+        idService: item.service.idService,
+        quantity: item.quantity,
+        bookingDate: item.bookingDate
+      }))
+    };
+
+    return this.http.post(this.apiUrl, bookingRequest, { headers });
+  }
+
+  getBookingsByUser(idUser: number): Observable<any[]> {
+    const token = localStorage.getItem('Token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+
+    return this.http.get<any[]>(`${this.apiUrl}/booking/${idUser}`, { headers });
   }
 }

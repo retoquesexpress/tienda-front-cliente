@@ -41,6 +41,9 @@ export class Login {
           this.loginService.saveRole(userRole);
         }
 
+
+        localStorage.setItem('user_data', JSON.stringify(data.userDto));
+
         if (this.loginService.isAdmin()) {
           this.router.navigate(['/inicioAdmin']);
         } else {
