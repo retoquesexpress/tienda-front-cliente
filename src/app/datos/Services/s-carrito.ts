@@ -3,12 +3,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { IBookingItem } from '../Models/i-booking-item';
 
+import { PayRequest } from '../Models/pay-request';
+
 @Injectable({
   providedIn: 'root'
 })
 export class SCarrito {
   private http = inject(HttpClient);
   private apiUrl = 'http://localhost:8080/api/bookings';
+  private apiPayUrl = 'http://localhost:8080/api/payments';
 
   private _cartItems: IBookingItem[] = [];
   private readonly CART_KEY = 'shopping_cart';
@@ -45,6 +48,14 @@ export class SCarrito {
 
   getTotalPrice(): number {
     return this._cartItems.reduce((acc, item) => acc + (item.service.price * item.quantity), 0);
+  }
+
+  pay(payRequest: PayRequest): Observable<any> {
+    const token = localStorage.getItem('Token');
+    const headers = new HttpHeaders({
+      'Authorization': `Bearer ${token}`
+    });
+    return this.http.post(`${this.apiPayUrl}/card`, payRequest, { headers });
   }
 
   createBooking(idUser: number, items: IBookingItem[]): Observable<any> {

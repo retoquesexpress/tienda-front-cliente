@@ -7,6 +7,7 @@ import { CFooter } from "../../../ui/c-footer/c-footer";
 import { SCarrito } from '../../../../datos/Services/s-carrito';
 import { IServicios } from '../../../../datos/Models/i-servicios';
 import { IBookingItem } from '../../../../datos/Models/i-booking-item';
+import { PayRequest } from '../../../../datos/Models/pay-request';
 
 @Component({
     selector: 'app-carrito',
@@ -121,20 +122,50 @@ export class Carrito implements OnInit {
         const userData = JSON.parse(userDataStr);
         const idUser = userData.idUser;
 
-        this.sCarrito.createBooking(idUser, this.cartItems).subscribe({
-            next: (response) => {
-                console.log('Booking created successfully:', response);
 
-                this.sCarrito.clearCart();
-                this.showSuccessMessage = true;
+        let expDate = '2025-12-31';
+        if (this.cardExpiry.includes('/')) {
+            const [mm, yy] = this.cardExpiry.split('/');
+            expDate = `20${yy}-${mm}-01`;
+        }
 
-                setTimeout(() => {
-                    this.router.navigate(['/reservas']);
-                }, 3000);
+        const payRequest: PayRequest = {
+            origen: {
+                cardNumber: this.cardNumber,
+                expirationDate: expDate,
+                cvv: parseInt(this.cardCvv),
+                nombreCompleto: this.cardName
+            },
+            pago: {
+                importe: Math.round(this.totalPrice),
+                concept: 'Reserva RetoquesExpress'
+            }
+        };
+
+
+        this.sCarrito.pay(payRequest).subscribe({
+            next: () => {
+                console.log('Payment successful');
+
+                this.sCarrito.createBooking(idUser, this.cartItems).subscribe({
+                    next: (response) => {
+                        console.log('Booking created successfully:', response);
+                        this.sCarrito.clearCart();
+                        this.showSuccessMessage = true;
+                        setTimeout(() => {
+                            this.router.navigate(['/reservas']);
+                        }, 3000);
+                    },
+                    error: (error) => {
+                        console.error('Error creating booking:', error);
+                        this.errorMessage = 'Pago realizado pero error al crear la reserva. Contacte con soporte.';
+                        this.showErrorMessage = true;
+                    }
+                });
             },
             error: (error) => {
-                console.error('Error creating booking:', error);
-                this.errorMessage = 'Error al procesar la reserva. Por favor, intenta de nuevo.';
+                console.error('Payment error:', error);
+                this.errorMessage = 'Error al procesar el pago. Por favor, verifique sus datos.';
                 this.showErrorMessage = true;
             }
         });
