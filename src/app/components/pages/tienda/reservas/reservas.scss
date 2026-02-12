@@ -288,16 +288,19 @@
     }
 
     &__service-description {
-        color: rgba(255, 255, 255, 0.6);
-        font-size: 13px;
+        color: rgba(255, 255, 255, 0.7);
+        font-size: 12px;
+        line-height: 1.4;
         margin-bottom: var(--mlt-sys-margin-12);
         flex: 1;
-        min-height: 40px;
+        min-height: 50px;
+        max-height: 50px;
         display: -webkit-box;
-        -webkit-line-clamp: 2;
-        line-clamp: 2;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
+        text-overflow: ellipsis;
     }
 
     &__service-price {

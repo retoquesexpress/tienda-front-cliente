@@ -1,6 +1,6 @@
 export interface OrigenDto {
     cardNumber: string;
-    expirationDate: string; // ISO format: YYYY-MM-DD
+    expirationDate: string;
     cvv: number;
     nombreCompleto: string;
 }

@@ -15,7 +15,7 @@
   margin: var(--grid-margin);
   padding: var(--grid-padding);
   place-items: center;
-  font-family: poppins;
+  font-family: var(--mlt-sys-font-titulos);
 
   &__card {
     --card-display: flex;

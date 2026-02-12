@@ -25,7 +25,7 @@
     margin-bottom: var(--title-margin-bottom);
     font-weight: var(--title-font-weight);
     text-align: center;
-    font-family: poppins;
+    font-family: var(--mlt-sys-font-titulos);
   }
 
   &__list {
@@ -58,7 +58,7 @@
 
     font-size: var(--service-font-size);
     letter-spacing: var(--service-letter-spacing);
-    font-family: poppins;
+    font-family: var(--mlt-sys-font-titulos);
 
   }
 
@@ -68,5 +68,6 @@
 
     font-size: var(--price-font-size);
     font-weight: var(--price-font-weight);
+    font-family: var(--mlt-sys-font-textos1);
   }
 }

@@ -5,12 +5,13 @@ import { FotoPrincipalComponent } from "../../../ui/c-foto-principal/c-foto-prin
 import { CPrecios } from "../../../ui/c-precios/c-precios";
 import { CFooter } from "../../../ui/c-footer/c-footer";
 import { SFuncionalidades } from '../../../../datos/Services/s-funcionalidades';
+import { CPedirCita } from '../../../ui/c-pedir-cita/c-pedir-cita';
 
 
 @Component({
   selector: 'app-unas',
   standalone: true,
-  imports: [CBloque3Imagenes, CHeader, FotoPrincipalComponent, CPrecios, CFooter],
+  imports: [CBloque3Imagenes, CHeader, FotoPrincipalComponent, CPrecios, CFooter, CPedirCita],
   templateUrl: './unas.html',
   styleUrl: './unas.scss'
 })

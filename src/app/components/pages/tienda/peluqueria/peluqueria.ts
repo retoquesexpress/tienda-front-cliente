@@ -6,11 +6,12 @@ import { CFooter } from '../../../ui/c-footer/c-footer';
 import { FotoPrincipalComponent } from '../../../ui/c-foto-principal/c-foto-principal';
 import { CPrecios } from '../../../ui/c-precios/c-precios';
 import { SFuncionalidades } from '../../../../datos/Services/s-funcionalidades';
+import { CPedirCita } from '../../../ui/c-pedir-cita/c-pedir-cita';
 
 
 @Component({
   selector: 'app-peluqueria',
-  imports: [FotoPrincipalComponent, CPrecios, CBloque3Imagenes, CHeader, CFooter, RouterLink],
+  imports: [FotoPrincipalComponent, CPrecios, CBloque3Imagenes, CHeader, CFooter, RouterLink, CPedirCita],
   templateUrl: './peluqueria.html',
   styleUrl: './peluqueria.scss'
 })

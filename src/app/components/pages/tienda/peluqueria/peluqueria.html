@@ -30,52 +30,13 @@
         </app-c-bloque-3-imagenes>
     </section>
 
-    <section class="peluqueria__values">
-        <div class="peluqueria__wrapper">
-            <div class="peluqueria__header">
-                <h2>Nuestros Valores</h2>
-                <p>Pasión por el detalle en cada servicio</p>
-            </div>
-            <div class="peluqueria__values-container">
-                <div class="peluqueria__value-item">
-                    <div class="peluqueria__value-info">
-                        <h3>Profesionalidad</h3>
-                        <p>Contamos con un equipo de estilistas expertos en las últimas tendencias y técnicas más
-                            vanguardistas, garantizando un servicio de excelencia y precisión en cada corte.</p>
-                    </div>
-                </div>
-                <div class="peluqueria__separator"></div>
-                <div class="peluqueria__value-item">
-                    <div class="peluqueria__value-info">
-                        <h3>Calidad</h3>
-                        <p>Sólo utilizamos productos premium y fórmulas nutritivas que cuidan tu fibra capilar, logrando
-                            acabados brillantes, duraderos y totalmente saludables para tu cabello.</p>
-                    </div>
-                </div>
-                <div class="peluqueria__separator"></div>
-                <div class="peluqueria__value-item">
-                    <div class="peluqueria__value-info">
-                        <h3>Cercanía</h3>
-                        <p>Nuestro enfoque se basa en un asesoramiento 100% personalizado, escuchando tus deseos para
-                            crear un look que potencie tu estilo y te haga sentir única.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
     <section class="peluqueria__services">
         <app-c-precios [precios]="precios"></app-c-precios>
     </section>
 
 
-    <section class="peluqueria__cta">
-        <div class="peluqueria__cta-container">
-            <h2>¿Listo para el cambio?</h2>
-            <p>Reserva tu cita hoy mismo y déjate cuidar por nuestros expertos. Tu transformación empieza aquí.</p>
-            <a routerLink="/reservas" class="peluqueria__cta-button">Reservar Ahora</a>
-        </div>
-    </section>
+    <app-c-pedir-cita [img]="'assets/peluqueria/FotoGrandePeluqueria.png'"></app-c-pedir-cita>
+
 </main>
 
 <c-footer></c-footer>

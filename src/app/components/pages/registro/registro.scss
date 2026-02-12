@@ -92,6 +92,7 @@
             background: rgba(255, 68, 68, 0.2);
             border: 1px solid #ff4444;
             color: #a31313;
+            font-family: var(--mlt-sys-font-textos1);
         }
     }
 
@@ -130,6 +131,7 @@
 
         font-size: var(--label-font-size);
         font-weight: 600;
+        font-family: var(--mlt-sys-font-textos1);
         color: var(--label-color);
         text-transform: uppercase;
         letter-spacing: 1px;
@@ -147,6 +149,7 @@
         width: var(--input-width);
         padding: var(--input-padding);
         font-size: var(--input-font-size);
+        font-family: var(--mlt-sys-font-textos1);
         background: var(--input-bg);
         border: var(--input-border);
         border-radius: var(--input-radius);
@@ -185,6 +188,7 @@
         border-radius: var(--btn-radius);
         font-size: var(--btn-font-size);
         font-weight: var(--btn-weight);
+        font-family: var(--mlt-sys-font-titulos);
         border: none;
         cursor: pointer;
         transition: all 0.3s ease;

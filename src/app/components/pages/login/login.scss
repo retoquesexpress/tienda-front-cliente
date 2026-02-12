@@ -93,6 +93,7 @@
         margin: var(--error-margin);
         border-radius: var(--error-radius);
         font-size: var(--mlt-sys-font-size-14);
+        font-family: var(--mlt-sys-font-textos1);
         text-align: center;
     }
 
@@ -110,6 +111,7 @@
 
         font-size: var(--label-font-size);
         font-weight: 600;
+        font-family: var(--mlt-sys-font-textos1);
         color: var(--label-color);
         text-transform: uppercase;
         letter-spacing: 1px;
@@ -127,6 +129,7 @@
         width: var(--input-width);
         padding: var(--input-padding);
         font-size: var(--input-font-size);
+        font-family: var(--mlt-sys-font-textos1);
         background: var(--input-bg);
         border: var(--input-border);
         border-radius: var(--input-radius);
@@ -155,6 +158,7 @@
         margin-top: var(--mlt-sys-margin-10);
         color: var(--register-color);
         font-size: var(--register-font-size);
+        font-family: var(--mlt-sys-font-textos1);
         text-decoration: none;
         transition: all 0.3s ease;
 
@@ -182,6 +186,7 @@
         border-radius: var(--btn-radius);
         font-size: var(--btn-font-size);
         font-weight: var(--btn-weight);
+        font-family: var(--mlt-sys-font-titulos);
         border: none;
         cursor: pointer;
         transition: all 0.3s ease;

@@ -9,7 +9,7 @@
     }
 
     &__title {
-        font-family: var(--mlt-sys-font-typescale-display-medium);
+        font-family: var(--mlt-sys-font-titulos);
         font-size: var(--mlt-sys-font-size-typescale-display-medium);
         color: var(--mlt-sys-color-on-surface);
         margin-bottom: 2rem;
@@ -60,18 +60,20 @@
         }
 
         &-name {
-            font-family: var(--mlt-sys-font-typescale-title-medium);
+            font-family: var(--mlt-sys-font-titulos);
             font-size: var(--mlt-sys-font-size-typescale-title-medium);
             color: var(--mlt-sys-color-on-surface);
             margin-bottom: 0.5rem;
         }
 
         &-price {
+            font-family: var(--mlt-sys-font-textos1);
             color: var(--mlt-sys-color-on-surface-variant);
             font-size: 0.9rem;
         }
 
         &-qty {
+            font-family: var(--mlt-sys-font-textos1);
             font-weight: 500;
             color: var(--mlt-sys-color-on-surface);
 
@@ -109,7 +111,7 @@
         }
 
         &-total {
-            font-family: var(--mlt-sys-font-typescale-title-large);
+            font-family: var(--mlt-sys-font-titulos);
             font-size: var(--mlt-sys-font-size-typescale-title-large);
             font-weight: bold;
             color: var(--mlt-sys-color-primary);
@@ -130,13 +132,14 @@
     }
 
     &__summary-title {
-        font-family: var(--mlt-sys-font-typescale-title-large);
+        font-family: var(--mlt-sys-font-titulos);
         font-size: var(--mlt-sys-font-size-typescale-title-large);
         margin-bottom: 1.5rem;
         color: var(--mlt-sys-color-on-surface);
     }
 
     &__summary-row {
+        font-family: var(--mlt-sys-font-textos1);
         display: flex;
         justify-content: space-between;
         margin-bottom: 1rem;
@@ -144,7 +147,7 @@
     }
 
     &__summary-total {
-        font-family: var(--mlt-sys-font-typescale-display-small);
+        font-family: var(--mlt-sys-font-titulos);
         font-size: var(--mlt-sys-font-size-typescale-display-small);
         font-weight: bold;
         color: var(--mlt-sys-color-on-surface);
@@ -159,7 +162,7 @@
     }
 
     &__form-title {
-        font-family: var(--mlt-sys-font-typescale-title-medium);
+        font-family: var(--mlt-sys-font-titulos);
         font-size: var(--mlt-sys-font-size-typescale-title-medium);
         margin-bottom: 1rem;
         color: var(--mlt-sys-color-on-surface);
@@ -170,6 +173,7 @@
         margin-right: 50px;
 
         label {
+            font-family: var(--mlt-sys-font-textos1);
             display: block;
             margin-bottom: 0.5rem;
             font-size: 0.875rem;
@@ -185,7 +189,7 @@
         border: 1px solid var(--mlt-sys-color-outline);
         background-color: var(--mlt-sys-color-surface-container);
         color: var(--mlt-sys-color-on-surface);
-        font-family: inherit;
+        font-family: var(--mlt-sys-font-textos1);
 
         &:focus {
             outline: 2px solid var(--mlt-sys-color-primary);
@@ -200,6 +204,7 @@
     }
 
     &__pay-btn {
+        font-family: var(--mlt-sys-font-titulos);
         width: 100%;
         padding: 1rem;
         background-color: var(--mlt-sys-color-primary);
@@ -218,6 +223,7 @@
     }
 
     &__error-message {
+        font-family: var(--mlt-sys-font-textos1);
         background-color: var(--mlt-sys-color-error-container, #ffdad6);
         color: var(--mlt-sys-color-on-error-container, #410002);
         padding: 1rem;
@@ -263,11 +269,13 @@
     animation: slideUp 0.3s ease-out;
 
     h2 {
+        font-family: var(--mlt-sys-font-titulos);
         margin-top: 1rem;
         color: var(--mlt-sys-color-on-surface);
     }
 
     p {
+        font-family: var(--mlt-sys-font-textos1);
         color: var(--mlt-sys-color-on-surface-variant);
     }
 }

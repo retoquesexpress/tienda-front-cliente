@@ -1,0 +1,137 @@
+.cita {
+    --cita-padding: var(--mlt-sys-padding-150) 5%;
+    --cita-glass-bg: var(--mlt-sys-light-transparent);
+    --cita-container-radius: var(--mlt-sys-radius-40);
+
+    padding: var(--cita-padding);
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+    background: transparent;
+
+    &__bg-img {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        z-index: 1;
+    }
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(rgba(244, 238, 232, 0.7), rgba(244, 238, 232, 0.7));
+        z-index: 2;
+    }
+
+    &__container {
+        --container-max-width: var(--mlt-sys-width-1000);
+        --container-margin: 0 auto;
+        --container-bg: var(--cita-glass-bg);
+        --container-padding: var(--mlt-sys-padding-80) var(--mlt-sys-padding-40);
+        --container-radius: var(--cita-container-radius);
+        --container-shadow: var(--mlt-sys-shadow-premium);
+        --container-border: 1px solid rgba(255, 255, 255, 0.4);
+
+        position: relative;
+        z-index: 3;
+        max-width: var(--container-max-width);
+        margin: var(--container-margin);
+        background: var(--container-bg);
+        backdrop-filter: blur(20px);
+        -webkit-backdrop-filter: blur(20px);
+        padding: var(--container-padding);
+        border-radius: var(--container-radius);
+        box-shadow: var(--container-shadow);
+        border: var(--container-border);
+        transition: transform 0.6s cubic-bezier(0.23, 1, 0.32, 1);
+
+        &:hover {
+            transform: translateY(-10px) scale(1.02);
+        }
+    }
+
+    &__title {
+        --title-font-family: var(--mlt-sys-font-titulos);
+        --title-font-size: var(--mlt-sys-font-size-48);
+        --title-color: var(--mlt-sys-primary);
+        --title-margin-bottom: var(--mlt-sys-spacer-20);
+        --title-font-weight: 800;
+
+        font-family: var(--title-font-family);
+        font-size: var(--title-font-size);
+        color: var(--title-color);
+        margin-bottom: var(--title-margin-bottom);
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        font-weight: var(--title-font-weight);
+    }
+
+    &__text {
+        --text-font-size: var(--mlt-sys-font-size-22);
+        --text-margin-bottom: var(--mlt-sys-spacer-50);
+        --text-color: var(--mlt-sys-gray);
+        --text-max-width: var(--mlt-sys-width-700);
+
+        font-size: var(--text-font-size);
+        margin-bottom: var(--text-margin-bottom);
+        color: var(--text-color);
+        max-width: var(--text-max-width);
+        margin-left: auto;
+        margin-right: auto;
+        line-height: 1.6;
+    }
+
+    &__button {
+        --button-padding: var(--mlt-sys-padding-20) var(--mlt-sys-padding-50);
+        --button-bg: linear-gradient(135deg, var(--mlt-sys-primary) 0%, var(--mlt-sys-primaryLight) 100%);
+        --button-color: var(--mlt-sys-white);
+        --button-radius: var(--mlt-sys-radius-50);
+        --button-font-weight: 700;
+        --button-font-size: var(--mlt-sys-font-size-18);
+        --button-shadow: 0 15px 35px rgba(87, 30, 45, 0.3);
+
+        display: inline-block;
+        padding: var(--button-padding);
+        background: var(--button-bg);
+        color: var(--button-color);
+        text-decoration: none;
+        border-radius: var(--button-radius);
+        font-weight: var(--button-font-weight);
+        text-transform: uppercase;
+        letter-spacing: 2px;
+        font-size: var(--button-font-size);
+        transition: all 0.4s ease;
+        box-shadow: var(--button-shadow);
+
+        &:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 40px rgba(87, 30, 45, 0.4);
+            filter: brightness(1.1);
+        }
+    }
+
+    @media (max-width: 900px) {
+        --cta-padding-mobile: var(--mlt-sys-padding-80) 5%;
+        padding: var(--cta-padding-mobile);
+
+        &__container {
+            padding: var(--mlt-sys-padding-50) var(--mlt-sys-padding-20);
+        }
+
+        &__title {
+            font-size: var(--mlt-sys-font-size-32);
+            letter-spacing: 2px;
+        }
+
+        &__text {
+            font-size: var(--mlt-sys-font-size-18);
+        }
+    }
+}
